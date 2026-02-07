@@ -21,11 +21,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-block mb-6">
+            <Link to="/" className="inline-block mb-8">
               <img
                 src={logo}
                 alt="Mind Your Business Media"
-                className="h-12 w-auto"
+                className="h-16 md:h-20 w-auto"
               />
             </Link>
             <p className="text-muted-foreground max-w-md mb-6">

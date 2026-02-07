@@ -16,23 +16,27 @@ export function CTASection({
   buttonLink = "/free-audit",
 }: CTASectionProps) {
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section className="py-28 md:py-36 lg:py-44 relative overflow-hidden">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-gradient-radial pointer-events-none opacity-50" />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl" />
+      </div>
       
       <div className="container-narrow relative z-10">
-        <div className="glow-card p-12 md:p-16 text-center animate-pulse-glow">
-          <h2 className="heading-lg mb-6 glow-text">{title}</h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 md:mb-8">
+            {title}
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed">
             {subtitle}
           </p>
-          <Button asChild variant="glow" size="xl">
+          <Button asChild variant="glow" size="xl" className="text-base px-10 py-7 h-auto mb-6">
             <Link to={buttonLink}>
               {buttonText}
-              <ArrowRight className="ml-2" />
+              <ArrowRight className="ml-3" size={20} />
             </Link>
           </Button>
-          <p className="text-sm text-muted-foreground mt-6">
+          <p className="text-sm text-muted-foreground">
             90-day minimum commitment • Retainer + Performance Revenue Share
           </p>
         </div>

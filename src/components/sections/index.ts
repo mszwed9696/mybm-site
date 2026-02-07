@@ -1,4 +1,5 @@
 export { HeroSection } from "./HeroSection";
+export { SocialProofSection } from "./SocialProofSection";
 export { ServicesSection } from "./ServicesSection";
 export { WhoWeHelpSection } from "./WhoWeHelpSection";
 export { DifferentiatorsSection } from "./DifferentiatorsSection";

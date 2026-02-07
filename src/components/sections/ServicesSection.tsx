@@ -4,7 +4,8 @@ import {
   MousePointerClick, 
   Mail, 
   BarChart3, 
-  Share2 
+  Share2,
+  ArrowRight
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -12,89 +13,77 @@ import { Button } from "@/components/ui/button";
 const services = [
   {
     icon: Megaphone,
-    title: "Paid Traffic Management",
-    description: "Strategic ad campaigns across Meta, TikTok, and Google that drive qualified traffic and maximize ROAS.",
-    platforms: ["Meta Ads", "TikTok Ads", "Google Ads"],
+    title: "Paid Traffic",
+    description: "Strategic campaigns across Meta, TikTok, and Google that maximize ROAS.",
   },
   {
     icon: Palette,
-    title: "Creative Strategy & Production",
-    description: "Scroll-stopping ad creative direction and production that converts cold traffic into paying customers.",
-    platforms: ["UGC Direction", "Static Ads", "Video Ads"],
+    title: "Creative Strategy",
+    description: "Scroll-stopping ad creative that converts cold traffic into customers.",
   },
   {
     icon: MousePointerClick,
-    title: "Landing Pages & Funnels",
-    description: "High-converting landing pages with optimized conversion paths, forms, and conditional logic.",
-    platforms: ["Sales Pages", "Quiz Funnels", "Checkout Optimization"],
+    title: "Funnels & Landing Pages",
+    description: "High-converting pages with optimized paths and conditional logic.",
   },
   {
     icon: Mail,
-    title: "Email Marketing & Automation",
-    description: "Revenue-generating email systems that nurture leads, recover carts, and maximize customer LTV.",
-    platforms: ["Flows", "Campaigns", "Segmentation"],
+    title: "Email Automation",
+    description: "Revenue systems that nurture leads and maximize customer LTV.",
   },
   {
     icon: BarChart3,
     title: "Analytics & Attribution",
-    description: "Advanced tracking and attribution systems so you know exactly what's driving revenue.",
-    platforms: ["Server-Side Tracking", "Attribution", "Dashboards"],
+    description: "Advanced tracking so you know exactly what drives revenue.",
   },
   {
     icon: Share2,
-    title: "Organic Social Growth",
-    description: "Content strategy and consulting to build brand authority and reduce CAC through organic channels.",
-    platforms: ["Content Strategy", "Community", "Brand Building"],
+    title: "Organic Growth",
+    description: "Content strategy to build authority and reduce CAC organically.",
   },
 ];
 
 export function ServicesSection() {
   return (
-    <section className="section-padding relative">
-      <div className="container-wide">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="text-accent font-medium mb-4">Our Services</p>
-          <h2 className="heading-lg mb-6">
+    <section className="py-28 md:py-36 lg:py-44">
+      <div className="container-narrow">
+        {/* Section Header - more breathing room */}
+        <div className="text-center mb-16 md:mb-20 lg:mb-24">
+          <p className="text-accent font-medium tracking-wide uppercase text-sm mb-5">
+            What We Do
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6 md:mb-8">
             Full-Funnel Growth{" "}
-            <span className="text-gradient">For Supplement Brands</span>
+            <span className="text-gradient">Services</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed">
             Everything you need to scale profitably — from first click to loyal customer.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
+        {/* Services Grid - cleaner, more spacious */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {services.map((service) => (
             <div
               key={service.title}
-              className="glow-card p-8 group"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group p-8 md:p-10 rounded-2xl border border-border/50 bg-card/30 hover:bg-card/60 hover:border-border transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                <service.icon className="text-accent" size={24} />
+              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/15 transition-colors duration-300">
+                <service.icon className="text-accent" size={26} />
               </div>
-              <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-              <p className="text-muted-foreground mb-4">{service.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {service.platforms.map((platform) => (
-                  <span
-                    key={platform}
-                    className="text-xs px-3 py-1 rounded-full bg-secondary text-secondary-foreground"
-                  >
-                    {platform}
-                  </span>
-                ))}
-              </div>
+              <h3 className="text-xl font-semibold mb-3 tracking-tight">{service.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{service.description}</p>
             </div>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <Button asChild variant="glow" size="lg">
-            <Link to="/services">Explore All Services</Link>
+        {/* CTA - more space above */}
+        <div className="text-center mt-16 md:mt-20">
+          <Button asChild variant="glow-outline" size="lg" className="px-8">
+            <Link to="/services">
+              View All Services
+              <ArrowRight className="ml-2" size={18} />
+            </Link>
           </Button>
         </div>
       </div>

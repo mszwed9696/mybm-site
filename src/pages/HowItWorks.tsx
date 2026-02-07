@@ -1,5 +1,6 @@
 import { Layout } from "@/components/layout";
 import { CTASection } from "@/components/sections";
+import { PageMeta, JsonLd } from "@/components/seo";
 import { ArrowRight } from "lucide-react";
 
 const steps = [
@@ -83,6 +84,19 @@ const pricingDetails = [
 export default function HowItWorks() {
   return (
     <Layout>
+      <PageMeta
+        title="How It Works | Mind Your Business Media — Our 5-Step Growth Process"
+        description="From free audit to scaled success — discover our 5-step process for driving profitable growth for supplement brands. Performance-aligned pricing."
+        keywords="supplement marketing process, performance marketing agency process, supplement growth roadmap, supplement brand scaling, ROAS optimization process"
+        canonicalPath="/how-it-works"
+      />
+      <JsonLd
+        type="BreadcrumbList"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "How It Works", path: "/how-it-works" },
+        ]}
+      />
       {/* Hero */}
       <section className="section-padding bg-gradient-hero">
         <div className="container-wide">

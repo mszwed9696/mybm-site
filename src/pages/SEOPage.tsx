@@ -1,6 +1,7 @@
-import { useLocation, Navigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { SEOLandingPage } from "@/components/seo";
 import { allSeoPages } from "@/data/seoPages";
+import NotFound from "./NotFound";
 
 export default function SEOPage() {
   const location = useLocation();
@@ -8,7 +9,7 @@ export default function SEOPage() {
   const pageData = allSeoPages.find((p) => p.slug === slug);
 
   if (!pageData) {
-    return <Navigate to="/" replace />;
+    return <NotFound />;
   }
 
   return (

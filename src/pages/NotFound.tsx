@@ -9,6 +9,23 @@ const NotFound = () => {
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+
+    let robotsMeta = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+    if (!robotsMeta) {
+      robotsMeta = document.createElement("meta");
+      robotsMeta.setAttribute("name", "robots");
+      document.head.appendChild(robotsMeta);
+    }
+    robotsMeta.setAttribute("content", "noindex, nofollow");
+
+    document.title = "Page Not Found | Mind Your Business Media";
+
+    return () => {
+      if (robotsMeta) {
+        robotsMeta.setAttribute("content", "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1");
+      }
+      document.title = "Mind Your Business Media | Performance Marketing Agency for Supplement Brands";
+    };
   }, [location.pathname]);
 
   return (

@@ -38,8 +38,10 @@ export function PageMeta({
     setMeta("og:title", ogTitle || title, true);
     setMeta("og:description", ogDescription || description, true);
     setMeta("og:url", `${BASE_URL}${canonicalPath}`, true);
+    setMeta("og:image", `${BASE_URL}/og-image.png`, true);
     setMeta("twitter:title", ogTitle || title);
     setMeta("twitter:description", ogDescription || description);
+    setMeta("twitter:image", `${BASE_URL}/og-image.png`);
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonical) {

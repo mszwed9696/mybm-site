@@ -1,11 +1,12 @@
 import { Layout } from "@/components/layout";
 import { CTASection } from "@/components/sections";
-import { 
-  Megaphone, 
-  Palette, 
-  MousePointerClick, 
-  Mail, 
-  BarChart3, 
+import { PageMeta, JsonLd } from "@/components/seo";
+import {
+  Megaphone,
+  Palette,
+  MousePointerClick,
+  Mail,
+  BarChart3,
   Share2,
   ArrowRight
 } from "lucide-react";
@@ -96,6 +97,24 @@ const services = [
 export default function Services() {
   return (
     <Layout>
+      <PageMeta
+        title="Services | Mind Your Business Media — Full-Funnel Growth for Supplement Brands"
+        description="Paid traffic management, creative strategy, landing pages, email automation, analytics & organic social — everything your supplement brand needs to scale profitably."
+        keywords="supplement paid ads, supplement email marketing, supplement landing pages, supplement funnel agency, supplement creative strategy, supplement analytics"
+        canonicalPath="/services"
+      />
+      <JsonLd
+        type="Service"
+        serviceName="Full-Funnel Growth Services"
+        serviceDescription="Paid traffic management, creative strategy, landing pages & funnels, email marketing & automation, analytics & attribution, and organic social & content for supplement brands."
+      />
+      <JsonLd
+        type="BreadcrumbList"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+        ]}
+      />
       {/* Hero */}
       <section className="section-padding bg-gradient-hero">
         <div className="container-wide">

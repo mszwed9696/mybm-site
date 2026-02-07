@@ -8,10 +8,19 @@ import {
   CTASection,
 } from "@/components/sections";
 import { AuditForm } from "@/components/forms";
+import { PageMeta, JsonLd } from "@/components/seo";
 
 export default function Home() {
   return (
     <Layout>
+      <PageMeta
+        title="Mind Your Business Media | Performance Marketing Agency for Supplement Brands"
+        description="Full-funnel growth agency for dietary supplements, nutraceuticals, sports nutrition, and wellness brands. Paid ads, funnels, email automation & ROAS-first strategy."
+        keywords="supplement marketing agency, nutraceutical marketing, sports nutrition marketing, dietary supplements advertising, wellness brand growth, supplement brand ROAS, fitness supplement marketing, vitamin company marketing, protein supplement ads, health supplement growth agency"
+        canonicalPath="/"
+      />
+      <JsonLd type="Organization" />
+      <JsonLd type="WebSite" />
       <HeroSection />
       <SocialProofSection />
       <ServicesSection />

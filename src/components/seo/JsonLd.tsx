@@ -5,14 +5,22 @@ interface FAQItem {
   answer: string;
 }
 
+interface BreadcrumbItem {
+  name: string;
+  path: string;
+}
+
 interface JsonLdProps {
-  type: "FAQPage" | "Service" | "Organization";
+  type: "FAQPage" | "Service" | "Organization" | "BreadcrumbList" | "WebSite";
   faqs?: FAQItem[];
   serviceName?: string;
   serviceDescription?: string;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
-export function JsonLd({ type, faqs, serviceName, serviceDescription }: JsonLdProps) {
+const BASE_URL = "https://mindyourbusinessmedia.com";
+
+export function JsonLd({ type, faqs, serviceName, serviceDescription, breadcrumbs }: JsonLdProps) {
   useEffect(() => {
     const id = `jsonld-${type}-${serviceName?.replace(/\s/g, "-") || "org"}`;
     let script = document.getElementById(id) as HTMLScriptElement | null;
@@ -47,17 +55,42 @@ export function JsonLd({ type, faqs, serviceName, serviceDescription }: JsonLdPr
         provider: {
           "@type": "Organization",
           name: "Mind Your Business Media",
-          url: "https://mindyourbusinessmedia.com",
+          url: BASE_URL,
         },
         areaServed: "US",
         serviceType: "Marketing Agency",
+      };
+    } else if (type === "BreadcrumbList" && breadcrumbs?.length) {
+      data = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbs.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.name,
+          item: `${BASE_URL}${item.path}`,
+        })),
+      };
+    } else if (type === "WebSite") {
+      data = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Mind Your Business Media",
+        url: BASE_URL,
+        description:
+          "Full-funnel growth agency for dietary supplements, nutraceuticals, sports nutrition, and wellness brands.",
+        publisher: {
+          "@type": "Organization",
+          name: "Mind Your Business Media",
+          url: BASE_URL,
+        },
       };
     } else {
       data = {
         "@context": "https://schema.org",
         "@type": "Organization",
         name: "Mind Your Business Media",
-        url: "https://mindyourbusinessmedia.com",
+        url: BASE_URL,
         description:
           "Full-funnel growth agency for dietary supplements, nutraceuticals, sports nutrition, and wellness brands.",
         contactPoint: {
@@ -73,7 +106,7 @@ export function JsonLd({ type, faqs, serviceName, serviceDescription }: JsonLdPr
     return () => {
       script?.remove();
     };
-  }, [type, faqs, serviceName, serviceDescription]);
+  }, [type, faqs, serviceName, serviceDescription, breadcrumbs]);
 
   return null;
 }

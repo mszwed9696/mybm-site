@@ -1,5 +1,6 @@
 import { Layout } from "@/components/layout";
 import { CTASection } from "@/components/sections";
+import { PageMeta, JsonLd } from "@/components/seo";
 import { Check } from "lucide-react";
 
 const industries = [
@@ -57,6 +58,19 @@ const idealClient = [
 export default function WhoWeWorkWith() {
   return (
     <Layout>
+      <PageMeta
+        title="Who We Work With | Mind Your Business Media — Supplement & Nutraceutical Brands"
+        description="We exclusively partner with supplement, nutraceutical, sports nutrition, and wellness brands ready to scale profitably. See if you're a fit."
+        keywords="supplement brand marketing, nutraceutical brand growth, sports nutrition agency, wellness brand marketing, dietary supplement advertising, collagen marketing, nootropics marketing"
+        canonicalPath="/who-we-work-with"
+      />
+      <JsonLd
+        type="BreadcrumbList"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Who We Work With", path: "/who-we-work-with" },
+        ]}
+      />
       {/* Hero */}
       <section className="section-padding bg-gradient-hero">
         <div className="container-wide">

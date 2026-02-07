@@ -1,5 +1,6 @@
 import { Layout } from "@/components/layout";
 import { AuditForm } from "@/components/forms";
+import { PageMeta, JsonLd } from "@/components/seo";
 import { Check } from "lucide-react";
 
 const auditIncludes = [
@@ -16,6 +17,19 @@ const auditIncludes = [
 export default function FreeAudit() {
   return (
     <Layout>
+      <PageMeta
+        title="Free Performance Audit | Mind Your Business Media — Discover Hidden Revenue"
+        description="Get a free custom audit of your supplement brand's marketing. We identify wasted ad spend, funnel leaks, and ROAS opportunities. Delivered within 48 hours."
+        keywords="free marketing audit, supplement brand audit, ROAS audit, ad spend audit, funnel audit, supplement marketing review, free performance audit"
+        canonicalPath="/free-audit"
+      />
+      <JsonLd
+        type="BreadcrumbList"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Free Audit", path: "/free-audit" },
+        ]}
+      />
       {/* Hero */}
       <section className="section-padding bg-gradient-hero">
         <div className="container-wide">

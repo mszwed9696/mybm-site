@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { PageMeta, JsonLd } from "@/components/seo";
 import { Loader2, Mail, MapPin, Phone } from "lucide-react";
 
 export default function Contact() {
@@ -25,6 +26,19 @@ export default function Contact() {
 
   return (
     <Layout>
+      <PageMeta
+        title="Contact Us | Mind Your Business Media — Let's Talk Growth"
+        description="Get in touch with Mind Your Business Media. Have questions about scaling your supplement brand? We'll respond within 24 hours."
+        keywords="contact supplement marketing agency, supplement brand help, marketing agency contact, mind your business media contact"
+        canonicalPath="/contact"
+      />
+      <JsonLd
+        type="BreadcrumbList"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]}
+      />
       {/* Hero */}
       <section className="section-padding bg-gradient-hero">
         <div className="container-wide">

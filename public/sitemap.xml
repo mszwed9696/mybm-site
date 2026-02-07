@@ -3,31 +3,37 @@
   <!-- Core Pages -->
   <url>
     <loc>https://mindyourbusinessmedia.com/</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/services</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/who-we-work-with</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/how-it-works</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/free-audit</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/contact</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -35,16 +41,19 @@
   <!-- Pillar SEO Pages -->
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-marketing-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/nutraceutical-marketing-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/energy-drink-marketing-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -52,41 +61,49 @@
   <!-- Supplement Service Pages -->
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-growth-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-advertising-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-ecommerce-marketing</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/dtc-supplement-marketing-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/cpg-supplement-marketing-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-paid-media-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-customer-acquisition-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-direct-response-marketing</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -94,16 +111,19 @@
   <!-- Platform-Specific Ad Pages -->
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-facebook-ads-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-google-ads-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-tiktok-ads-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -111,16 +131,19 @@
   <!-- Funnel, CRO, Landing Page Pages -->
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-cro-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-funnel-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-landing-page-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -128,11 +151,13 @@
   <!-- Email & Retention Pages -->
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-email-marketing-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-retention-marketing-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -140,21 +165,25 @@
   <!-- Industry Niche Pages -->
   <url>
     <loc>https://mindyourbusinessmedia.com/sports-nutrition-marketing-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/vitamin-brand-marketing-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/health-supplement-marketing-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/functional-beverage-marketing-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -162,16 +191,19 @@
   <!-- Business Model & Strategy Pages -->
   <url>
     <loc>https://mindyourbusinessmedia.com/performance-marketing-agency-supplements</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/full-funnel-marketing-agency</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mindyourbusinessmedia.com/supplement-brand-growth-partner</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -62,8 +62,8 @@ export function AuditForm() {
 
   if (isSubmitted) {
     return (
-      <div className="glow-card p-8 md:p-12 text-center">
-        <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6">
+      <div className="card-elevated p-10 md:p-14 text-center">
+        <div className="w-16 h-16 rounded-full bg-accent/15 flex items-center justify-center mx-auto mb-8">
           <svg
             className="w-8 h-8 text-accent"
             fill="none"
@@ -78,8 +78,8 @@ export function AuditForm() {
             />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold mb-4">Your Audit is On The Way!</h3>
-        <p className="text-muted-foreground max-w-md mx-auto">
+        <h3 className="heading-subsection mb-5">Your Audit is On The Way!</h3>
+        <p className="text-body text-muted-foreground max-w-md mx-auto">
           We've received your request and will deliver a custom performance audit 
           to your inbox within 48 hours. This will include actionable insights on 
           wasted ad spend, funnel leaks, and ROAS opportunities.
@@ -89,7 +89,7 @@ export function AuditForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="glow-card p-8 md:p-12">
+    <form onSubmit={handleSubmit} className="card-elevated p-8 md:p-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Full Name */}
         <div className="space-y-2">

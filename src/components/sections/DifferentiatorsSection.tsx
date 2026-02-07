@@ -29,35 +29,35 @@ const differentiators = [
 
 export function DifferentiatorsSection() {
   return (
-    <section className="py-28 md:py-36 lg:py-44">
-      <div className="container-narrow">
-        {/* Section Header - more spacious */}
-        <div className="text-center mb-16 md:mb-20 lg:mb-24">
-          <p className="text-accent font-medium tracking-wide uppercase text-sm mb-5">
+    <section className="section-lg">
+      <div className="container-content">
+        {/* Section Header - generous spacing */}
+        <div className="text-center mb-20 md:mb-24">
+          <p className="text-label text-accent mb-6">
             Why Choose Us
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6 md:mb-8">
+          <h2 className="heading-section mb-6 md:mb-8">
             What Makes Us{" "}
             <span className="text-gradient">Different</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto italic">
+          <p className="text-body-lg text-muted-foreground italic max-w-xl mx-auto">
             "We don't care to be right. We care about making you money."
           </p>
         </div>
 
-        {/* Differentiators Grid - cleaner cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        {/* Differentiators Grid - clean 2x2 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
           {differentiators.map((item) => (
             <div
               key={item.title}
-              className="p-8 md:p-10 rounded-2xl border border-border/50 bg-card/30 hover:bg-card/50 transition-all duration-300 flex gap-6"
+              className="card-minimal p-8 md:p-10 flex gap-6"
             >
-              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                <item.icon className="text-accent" size={26} />
+              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                <item.icon className="text-accent" size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-3 tracking-tight">{item.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                <h3 className="heading-card mb-3">{item.title}</h3>
+                <p className="text-body text-muted-foreground">{item.description}</p>
               </div>
             </div>
           ))}

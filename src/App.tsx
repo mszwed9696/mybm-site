@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home, Services, WhoWeWorkWith, HowItWorks, FreeAudit, Contact } from "./pages";
 import NotFound from "./pages/NotFound";
+import SEOPage from "./pages/SEOPage";
+import { seoPageSlugs } from "./data/seoPages";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +23,9 @@ const App = () => (
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/free-audit" element={<FreeAudit />} />
           <Route path="/contact" element={<Contact />} />
+          {seoPageSlugs.map((slug) => (
+            <Route key={slug} path={`/${slug}`} element={<SEOPage />} />
+          ))}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

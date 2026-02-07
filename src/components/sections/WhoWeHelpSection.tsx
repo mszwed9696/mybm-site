@@ -1,89 +1,66 @@
 import { Check } from "lucide-react";
 
+const benefits = [
+  "Deep understanding of supplement compliance and advertising restrictions",
+  "Proven creative frameworks that work within platform guidelines",
+  "Track record of scaling brands from $50K to $500K+ monthly revenue",
+];
+
 const industries = [
-  {
-    title: "Dietary Supplements",
-    description: "Vitamins, minerals, and general wellness supplements",
-  },
-  {
-    title: "Nutraceuticals",
-    description: "Functional foods and pharmaceutical-grade supplements",
-  },
-  {
-    title: "Sports Nutrition",
-    description: "Protein, pre-workout, BCAAs, creatine, and performance supplements",
-  },
-  {
-    title: "Health & Wellness",
-    description: "Immunity, gut health, cognitive, and longevity supplements",
-  },
-  {
-    title: "Weight Management",
-    description: "Fat burners, metabolism boosters, and weight loss supplements",
-  },
-  {
-    title: "Beauty & Collagen",
-    description: "Collagen, anti-aging, and beauty-from-within supplements",
-  },
+  "Dietary Supplements",
+  "Nutraceuticals", 
+  "Sports Nutrition",
+  "Health & Wellness",
+  "Weight Management",
+  "Beauty & Collagen",
 ];
 
 export function WhoWeHelpSection() {
   return (
-    <section className="section-padding bg-card/50">
-      <div className="container-wide">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="py-28 md:py-36 lg:py-44 bg-card/30">
+      <div className="container-narrow">
+        {/* Two-column layout */}
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Left Content */}
           <div>
-            <p className="text-accent font-medium mb-4">Who We Work With</p>
-            <h2 className="heading-lg mb-6">
-              Built Specifically For{" "}
+            <p className="text-accent font-medium tracking-wide uppercase text-sm mb-5">
+              Who We Work With
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6 md:mb-8">
+              Built For{" "}
               <span className="text-gradient">Supplement Brands</span>
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10">
               We exclusively partner with supplement, nutraceutical, and health brands 
-              that are ready to scale. Our entire system is built around the unique 
-              challenges and opportunities in this vertical.
+              ready to scale. Our system is built around this vertical's unique challenges.
             </p>
             
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="text-accent" size={14} />
+            <div className="space-y-5">
+              {benefits.map((benefit) => (
+                <div key={benefit} className="flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="text-accent" size={14} />
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {benefit}
+                  </p>
                 </div>
-                <p className="text-muted-foreground">
-                  Deep understanding of supplement compliance and advertising restrictions
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="text-accent" size={14} />
-                </div>
-                <p className="text-muted-foreground">
-                  Proven creative frameworks that work within platform guidelines
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="text-accent" size={14} />
-                </div>
-                <p className="text-muted-foreground">
-                  Track record of scaling brands from $50K to $500K+ monthly revenue
-                </p>
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* Right Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {industries.map((industry) => (
-              <div
-                key={industry.title}
-                className="glow-card p-6"
-              >
-                <h3 className="font-semibold mb-2">{industry.title}</h3>
-                <p className="text-sm text-muted-foreground">{industry.description}</p>
-              </div>
-            ))}
+          {/* Right - Industry Tags */}
+          <div className="lg:pt-4">
+            <div className="grid grid-cols-2 gap-4">
+              {industries.map((industry) => (
+                <div
+                  key={industry}
+                  className="p-6 rounded-xl border border-border/50 bg-secondary/20 hover:bg-secondary/40 transition-colors duration-300"
+                >
+                  <p className="font-medium">{industry}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

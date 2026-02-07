@@ -51,115 +51,185 @@
 }
 
 @layer components {
-  /* Glow effects */
+  /* ==========================================
+     STRIPE-INSPIRED SPACING SYSTEM
+     ========================================== */
+  
+  /* Section spacing - very generous like Stripe */
+  .section-hero {
+    @apply py-32 md:py-40 lg:py-48;
+  }
+  
+  .section-lg {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+  
+  .section-md {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+  
+  .section-sm {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  /* Container widths - Stripe-style content system */
+  .container-hero {
+    @apply max-w-6xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+  
+  .container-content {
+    @apply max-w-5xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+  
+  .container-narrow {
+    @apply max-w-3xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+  
+  .container-wide {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+
+  /* ==========================================
+     TYPOGRAPHY HIERARCHY
+     ========================================== */
+  
+  /* Hero headline - large, confident */
+  .heading-hero {
+    @apply text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-[-0.02em] leading-[1.05];
+  }
+  
+  /* Section headlines */
+  .heading-section {
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold tracking-[-0.02em] leading-[1.1];
+  }
+  
+  /* Subsection headlines */
+  .heading-subsection {
+    @apply text-2xl sm:text-3xl font-semibold tracking-[-0.01em] leading-[1.15];
+  }
+  
+  /* Card/feature titles */
+  .heading-card {
+    @apply text-xl font-semibold tracking-tight leading-snug;
+  }
+
+  /* Body text sizes with comfortable line-height */
+  .text-body-lg {
+    @apply text-lg md:text-xl leading-relaxed;
+  }
+  
+  .text-body {
+    @apply text-base leading-relaxed;
+  }
+  
+  /* Label/eyebrow text */
+  .text-label {
+    @apply text-sm font-medium tracking-wide uppercase;
+  }
+
+  /* ==========================================
+     SUBTLE GLOW EFFECTS (refined)
+     ========================================== */
+  
   .glow-border {
     @apply relative;
-    box-shadow: 0 0 30px hsl(var(--glow-primary) / 0.15), 
-                0 0 60px hsl(var(--glow-primary) / 0.1),
-                inset 0 1px 0 hsl(var(--glow-white) / 0.1);
+    box-shadow: 0 0 30px hsl(var(--glow-primary) / 0.1);
   }
 
   .glow-border-subtle {
-    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.1),
-                inset 0 1px 0 hsl(var(--glow-white) / 0.05);
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.08);
   }
 
   .glow-text {
-    text-shadow: 0 0 40px hsl(var(--glow-white) / 0.5),
-                 0 0 80px hsl(var(--glow-primary) / 0.3);
+    text-shadow: 0 0 60px hsl(var(--glow-white) / 0.4);
   }
 
   .glow-button {
     @apply relative overflow-hidden;
-    box-shadow: 0 0 30px hsl(var(--glow-primary) / 0.3),
-                0 4px 20px hsl(0 0% 0% / 0.5),
-                inset 0 1px 0 hsl(var(--glow-white) / 0.2);
+    box-shadow: 0 0 24px hsl(var(--glow-primary) / 0.25),
+                0 4px 16px hsl(0 0% 0% / 0.4);
     transition: all 0.3s ease;
   }
 
   .glow-button:hover {
-    box-shadow: 0 0 50px hsl(var(--glow-primary) / 0.5),
-                0 8px 30px hsl(0 0% 0% / 0.6),
-                inset 0 1px 0 hsl(var(--glow-white) / 0.3);
-    transform: translateY(-2px);
+    box-shadow: 0 0 40px hsl(var(--glow-primary) / 0.4),
+                0 6px 24px hsl(0 0% 0% / 0.5);
+    transform: translateY(-1px);
   }
 
-  .glow-card {
-    @apply bg-card border border-border rounded-xl;
-    background: var(--gradient-card);
-    box-shadow: 0 0 40px hsl(var(--glow-primary) / 0.08),
-                0 20px 40px hsl(0 0% 0% / 0.4),
-                inset 0 1px 0 hsl(var(--glow-white) / 0.05);
-    transition: all 0.4s ease;
+  /* ==========================================
+     CARD STYLES (minimal, Stripe-like)
+     ========================================== */
+  
+  .card-minimal {
+    @apply rounded-2xl border border-border/40 bg-card/40 transition-all duration-300;
+  }
+  
+  .card-minimal:hover {
+    @apply border-border/60 bg-card/60;
+  }
+  
+  .card-elevated {
+    @apply rounded-2xl border border-border/30 bg-card/50;
+    box-shadow: 0 4px 40px hsl(0 0% 0% / 0.25);
   }
 
-  .glow-card:hover {
-    box-shadow: 0 0 60px hsl(var(--glow-primary) / 0.15),
-                0 25px 50px hsl(0 0% 0% / 0.5),
-                inset 0 1px 0 hsl(var(--glow-white) / 0.1);
-    transform: translateY(-4px);
+  /* ==========================================
+     SECTION DIVIDERS (subtle like Stripe)
+     ========================================== */
+  
+  .divider-subtle {
+    @apply h-px w-full;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      hsl(var(--border) / 0.5) 20%,
+      hsl(var(--border) / 0.5) 80%,
+      transparent 100%
+    );
   }
-
-  /* Gradient backgrounds */
-  .bg-gradient-hero {
-    background: var(--gradient-hero);
-  }
-
-  .bg-gradient-radial {
-    background: radial-gradient(ellipse at center, hsl(var(--glow-primary) / 0.1) 0%, transparent 70%);
-  }
-
-  /* Premium section styling - generous spacing */
-  .section-padding {
-    @apply py-24 md:py-32 lg:py-40;
-  }
-
-  .container-narrow {
-    @apply max-w-4xl mx-auto px-6 sm:px-8 lg:px-12;
-  }
-
-  .container-wide {
-    @apply max-w-6xl mx-auto px-6 sm:px-8 lg:px-12;
-  }
-
-  /* Typography - refined hierarchy */
-  .heading-xl {
-    @apply text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05];
-  }
-
-  .heading-lg {
-    @apply text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.1];
-  }
-
-  .heading-md {
-    @apply text-2xl sm:text-3xl font-bold tracking-tight leading-[1.15];
-  }
-
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  /* Subtle dividers */
+  
   .divider-glow {
     @apply h-px w-full;
     background: linear-gradient(90deg, 
       transparent 0%, 
-      hsl(var(--glow-primary) / 0.3) 50%, 
+      hsl(var(--glow-primary) / 0.2) 50%, 
       transparent 100%
     );
   }
 
-  /* Form styling */
+  /* ==========================================
+     BACKGROUNDS
+     ========================================== */
+  
+  .bg-gradient-hero {
+    background: radial-gradient(ellipse 80% 50% at 50% -10%, hsl(var(--glow-primary) / 0.08) 0%, transparent 60%);
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, hsl(var(--glow-primary) / 0.06) 0%, transparent 70%);
+  }
+  
+  .bg-section-alt {
+    @apply bg-card/20;
+  }
+
+  /* ==========================================
+     FORM STYLING
+     ========================================== */
+  
   .input-glow {
-    @apply bg-secondary border-border focus:border-accent focus:ring-1 focus:ring-accent;
-    transition: all 0.3s ease;
+    @apply bg-secondary/80 border-border/60 focus:border-accent focus:ring-1 focus:ring-accent;
+    transition: all 0.2s ease;
   }
 
   .input-glow:focus {
-    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.2);
+    box-shadow: 0 0 16px hsl(var(--glow-primary) / 0.15);
   }
 
-  /* Link underline animation */
+  /* ==========================================
+     LINK & INTERACTION STYLES
+     ========================================== */
+  
   .link-underline {
     @apply relative;
   }
@@ -173,7 +243,10 @@
     @apply origin-bottom-left scale-x-100;
   }
 
-  /* Animate on scroll placeholder */
+  /* ==========================================
+     ANIMATIONS
+     ========================================== */
+  
   .fade-in-up {
     animation: fadeInUp 0.6s ease forwards;
   }
@@ -189,7 +262,6 @@
     }
   }
 
-  /* Stagger animation delays */
   .delay-100 { animation-delay: 100ms; }
   .delay-200 { animation-delay: 200ms; }
   .delay-300 { animation-delay: 300ms; }

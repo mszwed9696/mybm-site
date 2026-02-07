@@ -29,8 +29,8 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border"
-          : "bg-transparent"
+          ? "border-b border-border/50"
+          : ""
       }`}
     >
       <div className="container-wide">
@@ -40,7 +40,7 @@ export function Header() {
             <img
               src={logo}
               alt="Mind Your Business Media"
-              className="h-10 md:h-12 w-auto"
+              className="h-14 md:h-16 w-auto"
             />
           </Link>
 

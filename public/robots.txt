@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Crawl-delay: 1
 
-Sitemap: https://mindyourbusinessmedia.com/sitemap.xml
+Sitemap: https://mindyourbusiness.media/sitemap.xml

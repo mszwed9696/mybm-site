@@ -18,7 +18,7 @@ interface JsonLdProps {
   breadcrumbs?: BreadcrumbItem[];
 }
 
-const BASE_URL = "https://mindyourbusinessmedia.com";
+const BASE_URL = "https://mindyourbusiness.media";
 
 export function JsonLd({ type, faqs, serviceName, serviceDescription, breadcrumbs }: JsonLdProps) {
   useEffect(() => {

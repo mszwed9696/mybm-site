@@ -9,7 +9,7 @@ interface PageMetaProps {
   ogDescription?: string;
 }
 
-const BASE_URL = "https://mindyourbusinessmedia.com";
+const BASE_URL = "https://mindyourbusiness.media";
 
 export function PageMeta({
   title,
@@ -54,7 +54,7 @@ export function PageMeta({
     return () => {
       document.title = "Mind Your Business Media | Performance Marketing Agency for Supplement Brands";
       setMeta("description", "Full-funnel growth agency for dietary supplements, nutraceuticals, sports nutrition, and wellness brands. Paid ads, funnels, email automation & ROAS-first strategy.");
-      if (canonical) canonical.setAttribute("href", BASE_URL);
+      if (canonical) canonical.setAttribute("href", "https://mindyourbusiness.media");
     };
   }, [title, description, keywords, canonicalPath, ogTitle, ogDescription]);
 

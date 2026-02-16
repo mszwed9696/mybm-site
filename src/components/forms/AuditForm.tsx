@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { widgetSubmit } from "@/lib/api/widgetSubmit";
 
 const revenueOptions = [
   "Under $50,000",
@@ -49,15 +50,42 @@ export function AuditForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const formData = new FormData(e.currentTarget);
+    const urlParams = new URLSearchParams(window.location.search);
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast({
-      title: "Audit Request Submitted!",
-      description: "We'll review your information and send your custom audit within 48 hours.",
-    });
+    try {
+      await widgetSubmit({
+        name: formData.get("fullName") as string,
+        email: formData.get("email") as string,
+        phone: formData.get("phone") as string,
+        company: formData.get("company") as string,
+        website: formData.get("website") as string,
+        monthly_revenue: formData.get("revenue") as string,
+        monthly_ad_spend: formData.get("adSpend") as string,
+        primary_platform: selectedPlatforms.join(", "),
+        utm_source: urlParams.get("utm_source") || undefined,
+        utm_medium: urlParams.get("utm_medium") || undefined,
+        utm_campaign: urlParams.get("utm_campaign") || undefined,
+        utm_content: urlParams.get("utm_content") || undefined,
+        utm_term: urlParams.get("utm_term") || undefined,
+        referrer: document.referrer || undefined,
+      });
+
+      setIsSubmitted(true);
+      toast({
+        title: "Audit Request Submitted!",
+        description: "We'll review your information and send your custom audit within 48 hours.",
+      });
+    } catch (error) {
+      console.error("Submission error:", error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -80,8 +108,8 @@ export function AuditForm() {
         </div>
         <h3 className="heading-subsection mb-5">Your Audit is On The Way!</h3>
         <p className="text-body text-muted-foreground max-w-md mx-auto">
-          We've received your request and will deliver a custom performance audit 
-          to your inbox within 48 hours. This will include actionable insights on 
+          We've received your request and will deliver a custom performance audit
+          to your inbox within 48 hours. This will include actionable insights on
           wasted ad spend, funnel leaks, and ROAS opportunities.
         </p>
       </div>

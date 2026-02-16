@@ -8,6 +8,8 @@ import NotFound from "./pages/NotFound";
 import SEOPage from "./pages/SEOPage";
 import QuizPage from "./pages/QuizPage";
 import ProblemPage from "./pages/ProblemPage";
+import GlossaryPage from "./pages/GlossaryPage";
+import GlossaryTermPage from "./pages/GlossaryTermPage";
 import { seoPageSlugs } from "./data/seoPages";
 
 const queryClient = new QueryClient();
@@ -27,6 +29,8 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/quiz" element={<QuizPage />} />
           <Route path="/problems/:slug" element={<ProblemPage />} />
+          <Route path="/glossary" element={<GlossaryPage />} />
+          <Route path="/glossary/:slug" element={<GlossaryTermPage />} />
           {seoPageSlugs.map((slug) => (
             <Route key={slug} path={`/${slug}`} element={<SEOPage />} />
           ))}

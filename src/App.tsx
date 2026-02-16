@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home, Services, WhoWeWorkWith, HowItWorks, FreeAudit, Contact } from "./pages";
 import NotFound from "./pages/NotFound";
 import SEOPage from "./pages/SEOPage";
+import QuizPage from "./pages/QuizPage";
+import ProblemPage from "./pages/ProblemPage";
 import { seoPageSlugs } from "./data/seoPages";
 
 const queryClient = new QueryClient();
@@ -23,6 +25,8 @@ const App = () => (
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/free-audit" element={<FreeAudit />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/quiz" element={<QuizPage />} />
+          <Route path="/problems/:slug" element={<ProblemPage />} />
           {seoPageSlugs.map((slug) => (
             <Route key={slug} path={`/${slug}`} element={<SEOPage />} />
           ))}

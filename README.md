@@ -1,73 +1,90 @@
-# Welcome to your Lovable project
+# Performance Partner Portal — Mind Your Business Media
 
-## Project info
+The MYB Performance Partner Portal: a React + TypeScript web application for supplement brand growth services. Built with Antigravity, powered by Supabase.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Tech Stack
 
-## How can I edit this code?
+| Layer | Technology |
+|-------|-----------|
+| Framework | React 18 + TypeScript |
+| Build | Vite |
+| Styling | Tailwind CSS + shadcn/ui |
+| Backend | Supabase (Postgres, Auth, RLS) |
+| Routing | React Router v6 |
+| Testing | Vitest |
+| Deployment | Vercel (auto-deploy from `main`) |
 
-There are several ways of editing your application.
+## Architecture
 
-**Use Lovable**
+```
+src/
+├── components/       # UI components (forms, quiz, layout)
+├── config/           # Quiz config, routing rules, constants
+├── lib/
+│   ├── api/          # Supabase API layer (leads, quiz, content)
+│   ├── integrations/ # GoHighLevel, email (server-side scaffolds)
+│   ├── routing/      # Route computation, token generation
+│   └── seo/          # Sitemap generator, LLM optimization
+├── pages/            # Route-level page components
+└── test/             # Unit tests (Vitest)
+```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Key Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Interactive Quiz Funnel** — 8-step quiz that routes supplement brands to personalized problem pages and offer recommendations
+- **Deterministic Routing Engine** — Pure-function routing based on pain point, revenue tier, and lifecycle maturity
+- **SEO Content System** — Dynamic glossary, pillar pages, XML sitemap, and LLM discoverability meta tags
+- **Lead Capture** — Widget and quiz submissions stored in Supabase with UTM tracking
+- **Integration Scaffolds** — GoHighLevel contact sync and multi-provider email (Resend, SendGrid, Postmark)
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Getting Started
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repo
+git clone https://github.com/mszwed9696/performance-partner-portal.git
+cd performance-partner-portal
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Install dependencies
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your Supabase URL and anon key
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start dev server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Environment Variables
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+See [.env.example](.env.example) for all required variables:
+- `VITE_SUPABASE_URL` — Supabase project URL
+- `VITE_SUPABASE_ANON_KEY` — Supabase publishable anon key
 
-**Use GitHub Codespaces**
+## Testing
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```sh
+# Run all tests
+npx vitest run
 
-## What technologies are used for this project?
+# Watch mode
+npx vitest
+```
 
-This project is built with:
+**42 tests** across 4 suites: `computeRoute`, `widgetSubmit`, `quizSubmit`, `sitemapGenerator`.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deployment
 
-## How can I deploy this project?
+This repo is connected to Vercel. Every push to `main` triggers an auto-deploy.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+```sh
+# Build for production
+npm run build
 
-## Can I connect a custom domain to my Lovable project?
+# Push to deploy
+git push origin main
+```
 
-Yes, you can!
+## Database (Supabase)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Core tables: `leads`, `quiz_sessions`, `deliverables`, `content_items`. All tables have RLS enabled with appropriate policies.

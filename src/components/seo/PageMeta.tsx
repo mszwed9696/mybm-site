@@ -52,7 +52,7 @@ export function PageMeta({
     canonical.setAttribute("href", `${BASE_URL}${canonicalPath}`);
 
     return () => {
-      document.title = "Mind Your Business Media | Performance Marketing Agency";
+      document.title = "MYB Media | Performance Marketing Agency";
       setMeta("description", "Full-service performance marketing agency serving 27+ industries. Ad campaigns, SEO, AI solutions, website design, social media & reviews management — no retainers.");
       if (canonical) canonical.setAttribute("href", "https://mindyourbusiness.media");
     };

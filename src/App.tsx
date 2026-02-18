@@ -3,37 +3,51 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {
-  Home,
-  Services,
-  WhoWeWorkWith,
-  HowItWorks,
-  FreeAudit,
-  Contact,
-  IndustriesPage,
-  IndustryPage,
-  AboutPage,
-} from "./pages";
-import NotFound from "./pages/NotFound";
-import SEOPage from "./pages/SEOPage";
-import QuizPage from "./pages/QuizPage";
-import ProblemPage from "./pages/ProblemPage";
-import GlossaryPage from "./pages/GlossaryPage";
-import GlossaryTermPage from "./pages/GlossaryTermPage";
-import MarketingQuizPage from "./pages/MarketingQuizPage";
-import ListingScanPage from "./pages/ListingScanPage";
-import MarketingScorePage from "./pages/MarketingScorePage";
-import SocialCalculatorPage from "./pages/SocialCalculatorPage";
-import BlogPage from "./pages/BlogPage";
-import BlogPostPage from "./pages/BlogPostPage";
-import ServicePage from "./pages/ServicePage";
-import CaseStudiesPage from "./pages/CaseStudiesPage";
-import ClientReviewsPage from "./pages/ClientReviewsPage";
-import PlatformPricingPage from "./pages/PlatformPricingPage";
-import ZeroRetainersPage from "./pages/ZeroRetainersPage";
+import { lazy, Suspense } from "react";
 import { seoPageSlugs } from "./data/seoPages";
 
+// ── Eager: homepage loads immediately ──
+import Home from "./pages/Home";
+
+// ── Lazy: all other pages split into separate chunks ──
+const Services = lazy(() => import("./pages/Services"));
+const ServicePage = lazy(() => import("./pages/ServicePage"));
+const IndustriesPage = lazy(() => import("./pages/IndustriesPage"));
+const IndustryPage = lazy(() => import("./pages/IndustryPage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const WhoWeWorkWith = lazy(() => import("./pages/WhoWeWorkWith"));
+const HowItWorks = lazy(() => import("./pages/HowItWorks"));
+const ZeroRetainersPage = lazy(() => import("./pages/ZeroRetainersPage"));
+const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage"));
+const ClientReviewsPage = lazy(() => import("./pages/ClientReviewsPage"));
+const FreeAudit = lazy(() => import("./pages/FreeAudit"));
+const QuizPage = lazy(() => import("./pages/QuizPage"));
+const MarketingQuizPage = lazy(() => import("./pages/MarketingQuizPage"));
+const ListingScanPage = lazy(() => import("./pages/ListingScanPage"));
+const MarketingScorePage = lazy(() => import("./pages/MarketingScorePage"));
+const SocialCalculatorPage = lazy(() => import("./pages/SocialCalculatorPage"));
+const BlogPage = lazy(() => import("./pages/BlogPage"));
+const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
+const ProblemPage = lazy(() => import("./pages/ProblemPage"));
+const GlossaryPage = lazy(() => import("./pages/GlossaryPage"));
+const GlossaryTermPage = lazy(() => import("./pages/GlossaryTermPage"));
+const SEOPage = lazy(() => import("./pages/SEOPage"));
+const PlatformPricingPage = lazy(() => import("./pages/PlatformPricingPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
 const queryClient = new QueryClient();
+
+// Lightweight loading fallback (invisible spinner avoids layout shift)
+function PageLoader() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div
+        className="w-8 h-8 border-3 border-gray-200 rounded-full animate-spin"
+        style={{ borderTopColor: "#af3e4d" }}
+      />
+    </div>
+  );
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -41,36 +55,38 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/pricing" element={<PlatformPricingPage />} />
-          <Route path="/services/:slug" element={<ServicePage />} />
-          <Route path="/industries" element={<IndustriesPage />} />
-          <Route path="/industries/:slug" element={<IndustryPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/who-we-work-with" element={<WhoWeWorkWith />} />
-          <Route path="/how-it-works" element={<HowItWorks />} />
-          <Route path="/two-tiers" element={<ZeroRetainersPage />} />
-          <Route path="/case-studies" element={<CaseStudiesPage />} />
-          <Route path="/reviews" element={<ClientReviewsPage />} />
-          <Route path="/free-audit" element={<FreeAudit />} />
-          <Route path="/contact" element={<FreeAudit />} />
-          <Route path="/quiz" element={<QuizPage />} />
-          <Route path="/resources/marketing-quiz" element={<MarketingQuizPage />} />
-          <Route path="/resources/listing-scan" element={<ListingScanPage />} />
-          <Route path="/resources/marketing-score" element={<MarketingScorePage />} />
-          <Route path="/resources/social-calculator" element={<SocialCalculatorPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:slug" element={<BlogPostPage />} />
-          <Route path="/problems/:slug" element={<ProblemPage />} />
-          <Route path="/glossary" element={<GlossaryPage />} />
-          <Route path="/glossary/:slug" element={<GlossaryTermPage />} />
-          {seoPageSlugs.map((slug) => (
-            <Route key={slug} path={`/${slug}`} element={<SEOPage />} />
-          ))}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/services/pricing" element={<PlatformPricingPage />} />
+            <Route path="/services/:slug" element={<ServicePage />} />
+            <Route path="/industries" element={<IndustriesPage />} />
+            <Route path="/industries/:slug" element={<IndustryPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/who-we-work-with" element={<WhoWeWorkWith />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/two-tiers" element={<ZeroRetainersPage />} />
+            <Route path="/case-studies" element={<CaseStudiesPage />} />
+            <Route path="/reviews" element={<ClientReviewsPage />} />
+            <Route path="/free-audit" element={<FreeAudit />} />
+            <Route path="/contact" element={<FreeAudit />} />
+            <Route path="/quiz" element={<QuizPage />} />
+            <Route path="/resources/marketing-quiz" element={<MarketingQuizPage />} />
+            <Route path="/resources/listing-scan" element={<ListingScanPage />} />
+            <Route path="/resources/marketing-score" element={<MarketingScorePage />} />
+            <Route path="/resources/social-calculator" element={<SocialCalculatorPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
+            <Route path="/problems/:slug" element={<ProblemPage />} />
+            <Route path="/glossary" element={<GlossaryPage />} />
+            <Route path="/glossary/:slug" element={<GlossaryTermPage />} />
+            {seoPageSlugs.map((slug) => (
+              <Route key={slug} path={`/${slug}`} element={<SEOPage />} />
+            ))}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

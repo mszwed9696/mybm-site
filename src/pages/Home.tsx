@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <Layout>
       <PageMeta
-        title="Mind Your Business Media | Performance Marketing Agency — No Retainers"
+        title="MYB Media | Performance Marketing Agency"
         description="Performance marketing for every industry. Ad campaigns, SEO, AI automations, and more — all working together. Only pay for what you need, when you need it."
         keywords="digital marketing agency, performance marketing, SEO agency, ad campaigns, AI marketing automations, no retainer marketing, local business marketing, online marketing"
         canonicalPath="/"

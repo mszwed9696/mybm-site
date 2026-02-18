@@ -87,6 +87,9 @@ export function Header() {
                 src={logoImg}
                 alt="Mind Your Business Media"
                 className="h-14 w-auto"
+                width={140}
+                height={56}
+                fetchPriority="high"
               />
             </Link>
 

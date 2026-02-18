@@ -17,6 +17,17 @@ const STATIC_PAGES = [
     { path: "/free-audit", priority: "0.9", changefreq: "monthly" },
     { path: "/contact", priority: "0.7", changefreq: "monthly" },
     { path: "/quiz", priority: "0.9", changefreq: "monthly" },
+    { path: "/about", priority: "0.7", changefreq: "monthly" },
+    { path: "/blog", priority: "0.8", changefreq: "weekly" },
+    { path: "/two-tiers", priority: "0.7", changefreq: "monthly" },
+    { path: "/case-studies", priority: "0.8", changefreq: "monthly" },
+    { path: "/reviews", priority: "0.8", changefreq: "monthly" },
+    { path: "/services/pricing", priority: "0.8", changefreq: "monthly" },
+    { path: "/services/social-media-growth", priority: "0.8", changefreq: "monthly" },
+    { path: "/resources/marketing-quiz", priority: "0.7", changefreq: "monthly" },
+    { path: "/resources/listing-scan", priority: "0.7", changefreq: "monthly" },
+    { path: "/resources/marketing-score", priority: "0.7", changefreq: "monthly" },
+    { path: "/resources/social-calculator", priority: "0.7", changefreq: "monthly" },
 ];
 
 // Priority by page type

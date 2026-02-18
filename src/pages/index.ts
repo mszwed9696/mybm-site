@@ -4,3 +4,6 @@ export { default as WhoWeWorkWith } from "./WhoWeWorkWith";
 export { default as HowItWorks } from "./HowItWorks";
 export { default as FreeAudit } from "./FreeAudit";
 export { default as Contact } from "./Contact";
+export { default as IndustriesPage } from "./IndustriesPage";
+export { default as IndustryPage } from "./IndustryPage";
+export { default as AboutPage } from "./AboutPage";

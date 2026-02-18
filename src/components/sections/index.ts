@@ -1,6 +1,6 @@
 export { HeroSection } from "./HeroSection";
+export { ServicesCardsSection } from "./ServicesCardsSection";
+export { TiersSection } from "./TiersSection";
 export { SocialProofSection } from "./SocialProofSection";
-export { ServicesSection } from "./ServicesSection";
-export { WhoWeHelpSection } from "./WhoWeHelpSection";
-export { DifferentiatorsSection } from "./DifferentiatorsSection";
 export { CTASection } from "./CTASection";
+export { IntegrationsSection } from "./IntegrationsSection";

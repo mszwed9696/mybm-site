@@ -1,0 +1,21 @@
+{
+    "name": "Mind Your Business Media",
+    "short_name": "MYB Media",
+    "description": "Full-service performance marketing agency — no retainers, no lock-ins.",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#0a0908",
+    "background_color": "#edf2f4",
+    "icons": [
+        {
+            "src": "/favicon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

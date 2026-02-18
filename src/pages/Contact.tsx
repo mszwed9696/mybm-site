@@ -49,7 +49,7 @@ export default function Contact() {
               <span className="text-gradient-accent">Growth</span>
             </h1>
             <p className="text-xl text-muted-foreground">
-              Have questions about working with us? Reach out and we'll get back 
+              Have questions about working with us? Reach out and we'll get back
               to you within 24 hours.
             </p>
           </div>
@@ -130,7 +130,7 @@ export default function Contact() {
               <div>
                 <h2 className="text-2xl font-bold mb-6">Get In Touch</h2>
                 <p className="text-muted-foreground mb-8">
-                  Whether you're ready to scale or just exploring options, 
+                  Whether you're ready to scale or just exploring options,
                   we're here to help. Reach out through any of the channels below.
                 </p>
               </div>
@@ -142,7 +142,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-muted-foreground">hello@mindyourbusinessmedia.com</p>
+                    <p className="text-muted-foreground">hello@mindyourbusiness.media</p>
                   </div>
                 </div>
 

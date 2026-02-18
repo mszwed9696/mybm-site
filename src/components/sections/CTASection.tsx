@@ -1,44 +1,36 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-interface CTASectionProps {
-  title?: string;
-  subtitle?: string;
-  buttonText?: string;
-  buttonLink?: string;
-}
-
-export function CTASection({
-  title = "Ready to Scale Profitably?",
-  subtitle = "Get a free performance audit and discover the hidden revenue opportunities in your current marketing.",
-  buttonText = "Get Your Free Audit",
-  buttonLink = "/free-audit",
-}: CTASectionProps) {
+export function CTASection() {
   return (
-    <section className="section-lg relative overflow-hidden">
-      {/* Subtle background glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-accent/[0.04] rounded-full blur-3xl" />
-      </div>
-      
-      <div className="container-narrow relative z-10">
-        <div className="text-center">
-          <h2 className="heading-section mb-6 md:mb-8">
-            {title}
+    <section className="py-20" style={{ backgroundColor: "#fff" }}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div
+          className="rounded-3xl p-10 md:p-16 text-center"
+          style={{
+            background:
+              "linear-gradient(135deg, #0a0908 0%, #1a1a2e 50%, #16213e 100%)",
+          }}
+        >
+          <p className="text-sm font-bold uppercase tracking-widest text-white/40 mb-4">
+            Get Started Today
+          </p>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">
+            Ready to see what marketing{" "}
+            <span style={{ color: "#af3e4d" }}>should</span> look like?
           </h2>
-          <p className="text-body-lg text-muted-foreground mb-12 md:mb-14 max-w-2xl mx-auto">
-            {subtitle}
+          <p className="text-white/60 max-w-lg mx-auto mb-8 text-sm md:text-base">
+            Get a free audit of your current marketing — no obligations, no
+            retainers. Just an honest assessment and actionable next steps.
           </p>
-          <Button asChild variant="glow" size="xl" className="text-base px-10 h-14 mb-8">
-            <Link to={buttonLink}>
-              {buttonText}
-              <ArrowRight className="ml-3" size={18} />
-            </Link>
-          </Button>
-          <p className="text-sm text-muted-foreground">
-            90-day minimum commitment • Retainer + Performance Revenue Share
-          </p>
+          <Link
+            to="/free-audit"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            style={{ backgroundColor: "#af3e4d" }}
+          >
+            Request a Free Audit
+            <ArrowRight size={14} />
+          </Link>
         </div>
       </div>
     </section>

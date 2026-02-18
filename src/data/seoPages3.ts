@@ -8,7 +8,7 @@ export const seoPages3: SEOPageData[] = [
     slug: "nutraceutical-marketing-agency",
     meta: {
       title:
-        "Nutraceutical Marketing Agency | Growth Marketing for Nutraceutical Brands | MYBM",
+        "Nutraceutical Marketing Agency | Growth Marketing for Nutraceutical Brands | Mind Your Business Media",
       description:
         "Nutraceutical marketing agency built for growth. Mind Your Business Media delivers paid media, CRO, and retention strategies that scale nutraceutical brands profitably.",
       keywords:
@@ -147,7 +147,7 @@ export const seoPages3: SEOPageData[] = [
     slug: "sports-nutrition-marketing-agency",
     meta: {
       title:
-        "Sports Nutrition Marketing Agency | Marketing for Sports & Fitness Brands | MYBM",
+        "Sports Nutrition Marketing Agency | Marketing for Sports & Fitness Brands | Mind Your Business Media",
       description:
         "Sports nutrition marketing agency helping fitness and performance nutrition brands scale. Paid media, athlete partnerships, and creative strategy from Mind Your Business Media.",
       keywords:
@@ -264,7 +264,7 @@ export const seoPages3: SEOPageData[] = [
     slug: "vitamin-brand-marketing-agency",
     meta: {
       title:
-        "Vitamin Brand Marketing Agency | Grow Your Vitamin Supplement Brand | MYBM",
+        "Vitamin Brand Marketing Agency | Grow Your Vitamin Supplement Brand | Mind Your Business Media",
       description:
         "Vitamin brand marketing agency specializing in growth for vitamin and mineral supplement brands. Paid media, CRO, and retention by Mind Your Business Media.",
       keywords:
@@ -379,7 +379,7 @@ export const seoPages3: SEOPageData[] = [
     slug: "health-supplement-marketing-agency",
     meta: {
       title:
-        "Health & Wellness Supplement Marketing Agency | Wellness Brand Growth | MYBM",
+        "Health & Wellness Supplement Marketing Agency | Wellness Brand Growth | Mind Your Business Media",
       description:
         "Health supplement marketing agency driving growth for wellness brands. Mind Your Business Media delivers paid media, creative strategy, and retention marketing for health supplements.",
       keywords:
@@ -498,7 +498,7 @@ export const seoPages3: SEOPageData[] = [
     slug: "energy-drink-marketing-agency",
     meta: {
       title:
-        "Energy Drink Marketing Agency | Scale Your Energy Drink Brand | MYBM",
+        "Energy Drink Marketing Agency | Scale Your Energy Drink Brand | Mind Your Business Media",
       description:
         "Energy drink marketing agency scaling brands through paid ads, social media, and influencer marketing. Mind Your Business Media drives energy drink growth with data-backed strategy.",
       keywords:
@@ -638,7 +638,7 @@ export const seoPages3: SEOPageData[] = [
     slug: "functional-beverage-marketing-agency",
     meta: {
       title:
-        "Functional Beverage Marketing Agency | Marketing for Functional Drinks | MYBM",
+        "Functional Beverage Marketing Agency | Marketing for Functional Drinks | Mind Your Business Media",
       description:
         "Functional beverage marketing agency helping functional drink brands scale through paid media, DTC strategy, and retail marketing. Growth marketing by Mind Your Business Media.",
       keywords:
@@ -757,7 +757,7 @@ export const seoPages3: SEOPageData[] = [
     slug: "performance-marketing-agency-supplements",
     meta: {
       title:
-        "Performance Marketing Agency for Supplements | ROAS-Focused Growth | MYBM",
+        "Performance Marketing Agency for Supplements | ROAS-Focused Growth | Mind Your Business Media",
       description:
         "Performance marketing agency for supplements and energy drinks. Mind Your Business Media delivers ROAS-focused campaigns with measurable results across paid media channels.",
       keywords:
@@ -876,7 +876,7 @@ export const seoPages3: SEOPageData[] = [
     slug: "full-funnel-marketing-agency",
     meta: {
       title:
-        "Full-Funnel Marketing Agency for Supplements | Top to Bottom Funnel | MYBM",
+        "Full-Funnel Marketing Agency for Supplements | Top to Bottom Funnel | Mind Your Business Media",
       description:
         "Full-funnel marketing agency for supplement and CPG brands. Mind Your Business Media drives awareness, consideration, conversion, and retention across the complete customer journey.",
       keywords:

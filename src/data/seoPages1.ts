@@ -42,7 +42,7 @@ export const seoPages1: SEOPageData[] = [
     slug: "supplement-marketing-agency",
     meta: {
       title:
-        "Supplement Marketing Agency | Full-Funnel Growth for Supplement Brands | MYBM",
+        "Supplement Marketing Agency | Full-Funnel Growth for Supplement Brands | Mind Your Business Media",
       description:
         "Supplement marketing agency delivering 3.5x average ROAS for supplement brands. Mind Your Business Media drives full-funnel growth through paid ads, creative, and analytics.",
       keywords:
@@ -188,7 +188,7 @@ export const seoPages1: SEOPageData[] = [
     slug: "supplement-growth-agency",
     meta: {
       title:
-        "Supplement Growth Agency | Scale Your Supplement Brand Profitably | MYBM",
+        "Supplement Growth Agency | Scale Your Supplement Brand Profitably | Mind Your Business Media",
       description:
         "Supplement growth agency helping brands scale profitably. Mind Your Business Media delivers structured growth frameworks that have driven $50M+ in supplement revenue.",
       keywords:
@@ -317,7 +317,7 @@ export const seoPages1: SEOPageData[] = [
     slug: "supplement-advertising-agency",
     meta: {
       title:
-        "Supplement Advertising Agency | Paid Ads That Drive Real ROAS | MYBM",
+        "Supplement Advertising Agency | Paid Ads That Drive Real ROAS | Mind Your Business Media",
       description:
         "Supplement advertising agency specializing in paid ads that deliver measurable ROAS. Mind Your Business Media manages multi-platform campaigns for supplement brands.",
       keywords:
@@ -453,7 +453,7 @@ export const seoPages1: SEOPageData[] = [
     slug: "supplement-ecommerce-marketing",
     meta: {
       title:
-        "Supplement Ecommerce Marketing | Drive Online Sales for Supplement Brands | MYBM",
+        "Supplement Ecommerce Marketing | Drive Online Sales for Supplement Brands | Mind Your Business Media",
       description:
         "Supplement ecommerce marketing that drives online sales and repeat purchases. Mind Your Business Media optimizes every touchpoint from product pages to checkout.",
       keywords:
@@ -586,7 +586,7 @@ export const seoPages1: SEOPageData[] = [
     slug: "dtc-supplement-marketing-agency",
     meta: {
       title:
-        "DTC Supplement Marketing Agency | Direct-to-Consumer Growth Experts | MYBM",
+        "DTC Supplement Marketing Agency | Direct-to-Consumer Growth Experts | Mind Your Business Media",
       description:
         "DTC supplement marketing agency helping direct-to-consumer brands acquire customers profitably. Expert paid ads, creative, and retention for DTC supplement brands.",
       keywords:
@@ -723,7 +723,7 @@ export const seoPages1: SEOPageData[] = [
     slug: "cpg-supplement-marketing-agency",
     meta: {
       title:
-        "CPG Supplement Marketing Agency | Consumer Packaged Goods Marketing | MYBM",
+        "CPG Supplement Marketing Agency | Consumer Packaged Goods Marketing | Mind Your Business Media",
       description:
         "CPG supplement marketing agency combining digital performance with retail strategy. Mind Your Business Media drives omnichannel growth for CPG supplement brands.",
       keywords:
@@ -861,7 +861,7 @@ export const seoPages1: SEOPageData[] = [
     slug: "supplement-paid-media-agency",
     meta: {
       title:
-        "Supplement Paid Media Agency | Expert Media Buying for Supplement Brands | MYBM",
+        "Supplement Paid Media Agency | Expert Media Buying for Supplement Brands | Mind Your Business Media",
       description:
         "Paid media agency for supplement brands delivering expert media buying across Meta, TikTok, and Google. Mind Your Business Media drives 3.5x average ROAS.",
       keywords:
@@ -998,7 +998,7 @@ export const seoPages1: SEOPageData[] = [
     slug: "supplement-customer-acquisition-agency",
     meta: {
       title:
-        "Supplement Customer Acquisition Agency | Acquire Customers Profitably | MYBM",
+        "Supplement Customer Acquisition Agency | Acquire Customers Profitably | Mind Your Business Media",
       description:
         "Supplement customer acquisition agency focused on profitable customer growth. Mind Your Business Media builds scalable acquisition funnels for supplement and wellness brands.",
       keywords:
@@ -1135,7 +1135,7 @@ export const seoPages1: SEOPageData[] = [
     slug: "supplement-direct-response-marketing",
     meta: {
       title:
-        "Supplement Direct Response Marketing | Performance-Driven Campaigns | MYBM",
+        "Supplement Direct Response Marketing | Performance-Driven Campaigns | Mind Your Business Media",
       description:
         "Supplement direct response marketing that drives measurable, trackable sales. Mind Your Business Media builds performance campaigns where every dollar is accountable.",
       keywords:

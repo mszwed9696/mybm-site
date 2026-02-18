@@ -8,7 +8,7 @@ export const seoPages2: SEOPageData[] = [
     slug: "supplement-facebook-ads-agency",
     meta: {
       title:
-        "Supplement Facebook Ads Agency | Meta Ads Experts for Supplement Brands | MYBM",
+        "Supplement Facebook Ads Agency | Meta Ads Experts for Supplement Brands | Mind Your Business Media",
       description:
         "Supplement Facebook ads agency delivering 3.5x ROAS with compliant Meta campaigns. Expert audience targeting, creative strategy, and scaling for supplement brands.",
       keywords:
@@ -158,7 +158,7 @@ export const seoPages2: SEOPageData[] = [
     slug: "supplement-google-ads-agency",
     meta: {
       title:
-        "Supplement Google Ads Agency | Search & Shopping Ads for Supplements | MYBM",
+        "Supplement Google Ads Agency | Search & Shopping Ads for Supplements | Mind Your Business Media",
       description:
         "Supplement Google Ads agency capturing high-intent buyers through Search, Shopping, and YouTube. Intent-driven keyword strategy delivering 3.5x average ROAS.",
       keywords:
@@ -309,7 +309,7 @@ export const seoPages2: SEOPageData[] = [
     slug: "supplement-tiktok-ads-agency",
     meta: {
       title:
-        "Supplement TikTok Ads Agency | Viral Growth for Supplement Brands | MYBM",
+        "Supplement TikTok Ads Agency | Viral Growth for Supplement Brands | Mind Your Business Media",
       description:
         "Supplement TikTok ads agency creating viral, high-converting campaigns for health brands. Gen Z and Millennial targeting with platform-native creative strategy.",
       keywords:
@@ -460,7 +460,7 @@ export const seoPages2: SEOPageData[] = [
     slug: "supplement-cro-agency",
     meta: {
       title:
-        "Supplement CRO Agency | Conversion Rate Optimization for Supplements | MYBM",
+        "Supplement CRO Agency | Conversion Rate Optimization for Supplements | Mind Your Business Media",
       description:
         "Supplement CRO agency specializing in conversion rate optimization for supplement ecommerce. A/B testing, UX optimization, and data-driven CRO that lifts revenue.",
       keywords:
@@ -607,7 +607,7 @@ export const seoPages2: SEOPageData[] = [
     slug: "supplement-email-marketing-agency",
     meta: {
       title:
-        "Supplement Email Marketing Agency | Email & SMS for Supplement Brands | MYBM",
+        "Supplement Email Marketing Agency | Email & SMS for Supplement Brands | Mind Your Business Media",
       description:
         "Supplement email marketing agency building automated email and SMS campaigns that drive repeat purchases. Lifecycle marketing and retention for supplement brands.",
       keywords:
@@ -754,7 +754,7 @@ export const seoPages2: SEOPageData[] = [
     slug: "supplement-retention-marketing-agency",
     meta: {
       title:
-        "Supplement Retention Marketing Agency | Maximize Customer LTV | MYBM",
+        "Supplement Retention Marketing Agency | Maximize Customer LTV | Mind Your Business Media",
       description:
         "Supplement retention marketing agency maximizing customer lifetime value through subscription optimization, loyalty programs, and LTV-focused strategies for supplement brands.",
       keywords:
@@ -901,7 +901,7 @@ export const seoPages2: SEOPageData[] = [
     slug: "supplement-funnel-agency",
     meta: {
       title:
-        "Supplement Funnel Agency | High-Converting Funnels for Supplement Brands | MYBM",
+        "Supplement Funnel Agency | High-Converting Funnels for Supplement Brands | Mind Your Business Media",
       description:
         "Supplement funnel agency building high-converting sales funnels, quiz funnels, and nutraceutical funnel optimization. Engineered for maximum revenue per visitor.",
       keywords:
@@ -1052,7 +1052,7 @@ export const seoPages2: SEOPageData[] = [
     slug: "supplement-landing-page-agency",
     meta: {
       title:
-        "Supplement Landing Page Agency | Landing Pages That Convert | MYBM",
+        "Supplement Landing Page Agency | Landing Pages That Convert | Mind Your Business Media",
       description:
         "Supplement landing page agency designing high-converting, mobile-first landing pages for supplement brands. Data-driven optimization and A/B testing included.",
       keywords:
@@ -1199,7 +1199,7 @@ export const seoPages2: SEOPageData[] = [
     slug: "supplement-brand-growth-partner",
     meta: {
       title:
-        "Supplement Brand Growth Partner | Your Revenue-Aligned Growth Team | MYBM",
+        "Supplement Brand Growth Partner | Your Revenue-Aligned Growth Team | Mind Your Business Media",
       description:
         "Growth partner for supplement brands offering revenue-aligned, full-service marketing. Paid media, CRO, retention, and creative strategy under one performance-driven roof.",
       keywords:

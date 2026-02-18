@@ -52,8 +52,8 @@ export function PageMeta({
     canonical.setAttribute("href", `${BASE_URL}${canonicalPath}`);
 
     return () => {
-      document.title = "Mind Your Business Media | Performance Marketing Agency for Supplement Brands";
-      setMeta("description", "Full-funnel growth agency for dietary supplements, nutraceuticals, sports nutrition, and wellness brands. Paid ads, funnels, email automation & ROAS-first strategy.");
+      document.title = "Mind Your Business Media | Performance Marketing Agency";
+      setMeta("description", "Full-service performance marketing agency serving 27+ industries. Ad campaigns, SEO, AI solutions, website design, social media & reviews management — no retainers.");
       if (canonical) canonical.setAttribute("href", "https://mindyourbusiness.media");
     };
   }, [title, description, keywords, canonicalPath, ogTitle, ogDescription]);

@@ -78,7 +78,7 @@ export function JsonLd({ type, faqs, serviceName, serviceDescription, breadcrumb
         name: "Mind Your Business Media",
         url: BASE_URL,
         description:
-          "Full-funnel growth agency for dietary supplements, nutraceuticals, sports nutrition, and wellness brands.",
+          "Full-service performance marketing agency serving 27+ industries with ad campaigns, SEO, AI solutions, and more — no retainers.",
         publisher: {
           "@type": "Organization",
           name: "Mind Your Business Media",
@@ -92,10 +92,10 @@ export function JsonLd({ type, faqs, serviceName, serviceDescription, breadcrumb
         name: "Mind Your Business Media",
         url: BASE_URL,
         description:
-          "Full-funnel growth agency for dietary supplements, nutraceuticals, sports nutrition, and wellness brands.",
+          "Full-service performance marketing agency serving 27+ industries with ad campaigns, SEO, AI solutions, and more — no retainers.",
         contactPoint: {
           "@type": "ContactPoint",
-          email: "hello@mindyourbusinessmedia.com",
+          email: "hello@mindyourbusiness.media",
           contactType: "sales",
         },
       };

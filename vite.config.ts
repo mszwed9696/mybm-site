@@ -22,6 +22,8 @@ export default defineConfig(({ mode }) => ({
     target: "es2020",
     // Enable CSS code splitting per route
     cssCodeSplit: true,
+    // Increase warning limit since we have well-split chunks
+    chunkSizeWarningLimit: 350,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -42,6 +44,10 @@ export default defineConfig(({ mode }) => ({
           ],
           // Data fetching
           "vendor-query": ["@tanstack/react-query"],
+          // Supabase — only needed by forms/API calls, not initial render
+          "vendor-supabase": ["@supabase/supabase-js"],
+          // Icons — tree-shaken but still substantial
+          "vendor-icons": ["lucide-react"],
         },
       },
     },

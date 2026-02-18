@@ -5,7 +5,7 @@ import {
   mainNavSections,
   type NavSection,
 } from "@/data/navigationData";
-import logoImg from "@/assets/mybm-logo.png";
+import logoImg from "@/assets/mybm-logo.webp";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);

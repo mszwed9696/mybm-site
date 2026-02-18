@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import logoTransparent from "../../assets/logo-transparent.png";
+import logoTransparent from "../../assets/logo-transparent.webp";
 
 const footerSections = [
   {
@@ -80,7 +80,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-1.5 mb-4">
-              <img src={logoTransparent} alt="Mind Your Business Media" className="h-12 w-auto" />
+              <img src={logoTransparent} alt="Mind Your Business Media" className="h-12 w-auto" loading="lazy" width={120} height={48} />
             </Link>
             <p className="text-xs text-white/40 leading-relaxed">
               Performance marketing for every industry. Only pay for what you

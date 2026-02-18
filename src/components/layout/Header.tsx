@@ -5,7 +5,7 @@ import {
   mainNavSections,
   type NavSection,
 } from "@/data/navigationData";
-import logoImg from "@/assets/logo.png";
+import logoImg from "@/assets/logo-transparent.png";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -86,7 +86,8 @@ export function Header() {
               <img
                 src={logoImg}
                 alt="Mind Your Business Media"
-                className="h-10 w-auto"
+                className="h-12 w-auto"
+                style={{ filter: "brightness(0) opacity(0.55)" }}
               />
             </Link>
 

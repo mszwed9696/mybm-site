@@ -1,62 +1,62 @@
 import { useEffect } from "react";
 
 interface PageMetaProps {
-  title: string;
-  description: string;
-  keywords?: string;
-  canonicalPath: string;
-  ogTitle?: string;
-  ogDescription?: string;
+ title: string;
+ description: string;
+ keywords?: string;
+ canonicalPath: string;
+ ogTitle?: string;
+ ogDescription?: string;
 }
 
 const BASE_URL = "https://mindyourbusiness.media";
 
 export function PageMeta({
-  title,
-  description,
-  keywords,
-  canonicalPath,
-  ogTitle,
-  ogDescription,
+ title,
+ description,
+ keywords,
+ canonicalPath,
+ ogTitle,
+ ogDescription,
 }: PageMetaProps) {
-  useEffect(() => {
-    document.title = title;
+ useEffect(() => {
+ document.title = title;
 
-    const setMeta = (name: string, content: string, isProperty = false) => {
-      const attr = isProperty ? "property" : "name";
-      let el = document.querySelector(`meta[${attr}="${name}"]`) as HTMLMetaElement | null;
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute(attr, name);
-        document.head.appendChild(el);
-      }
-      el.setAttribute("content", content);
-    };
+ const setMeta = (name: string, content: string, isProperty = false) => {
+ const attr = isProperty ? "property" : "name";
+ let el = document.querySelector(`meta[${attr}="${name}"]`) as HTMLMetaElement | null;
+ if (!el) {
+ el = document.createElement("meta");
+ el.setAttribute(attr, name);
+ document.head.appendChild(el);
+ }
+ el.setAttribute("content", content);
+ };
 
-    setMeta("description", description);
-    if (keywords) setMeta("keywords", keywords);
-    setMeta("og:title", ogTitle || title, true);
-    setMeta("og:description", ogDescription || description, true);
-    setMeta("og:url", `${BASE_URL}${canonicalPath}`, true);
-    setMeta("og:image", `${BASE_URL}/og-image.png`, true);
-    setMeta("twitter:title", ogTitle || title);
-    setMeta("twitter:description", ogDescription || description);
-    setMeta("twitter:image", `${BASE_URL}/og-image.png`);
+ setMeta("description", description);
+ if (keywords) setMeta("keywords", keywords);
+ setMeta("og:title", ogTitle || title, true);
+ setMeta("og:description", ogDescription || description, true);
+ setMeta("og:url", `${BASE_URL}${canonicalPath}`, true);
+ setMeta("og:image", `${BASE_URL}/og-image.png`, true);
+ setMeta("twitter:title", ogTitle || title);
+ setMeta("twitter:description", ogDescription || description);
+ setMeta("twitter:image", `${BASE_URL}/og-image.png`);
 
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute("href", `${BASE_URL}${canonicalPath}`);
+ let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+ if (!canonical) {
+ canonical = document.createElement("link");
+ canonical.setAttribute("rel", "canonical");
+ document.head.appendChild(canonical);
+ }
+ canonical.setAttribute("href", `${BASE_URL}${canonicalPath}`);
 
-    return () => {
-      document.title = "MYB Media | Performance Marketing Agency";
-      setMeta("description", "Full-service performance marketing agency serving 27+ industries. Ad campaigns, SEO, AI solutions, website design, social media & reviews management — no retainers.");
-      if (canonical) canonical.setAttribute("href", "https://mindyourbusiness.media");
-    };
-  }, [title, description, keywords, canonicalPath, ogTitle, ogDescription]);
+ return () => {
+ document.title = "Mind Your Business Media | Performance Marketing Agency";
+ setMeta("description", "Full-service performance marketing agency serving 27+ industries. Ad campaigns, SEO, AI solutions, website design, social media & reviews management — results-driven strategies.");
+ if (canonical) canonical.setAttribute("href", "https://mindyourbusiness.media");
+ };
+ }, [title, description, keywords, canonicalPath, ogTitle, ogDescription]);
 
-  return null;
+ return null;
 }

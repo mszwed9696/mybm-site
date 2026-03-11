@@ -1,0 +1,20 @@
+Total messages: 6 (Errors: 1, Warnings: 2)
+Returning 1 messages for level "error"
+
+[ERROR] Warning: React does not recognize the `%s` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `%s` instead. If you accidentally passed it from a parent component, remove it from the DOM element.%s fetchPriority fetchpriority 
+    at img
+    at a
+    at LinkWithRef (http://localhost:8085/node_modules/.vite/deps/react-router-dom.js?v=d1a490f1:5352:5)
+    at div
+    at div
+    at header
+    at Header (http://localhost:8085/src/components/layout/Header.tsx:30:43)
+    at div
+    at Layout (http://localhost:8085/src/components/layout/Layout.tsx:23:26)
+    at BlogPage (http://localhost:8085/src/pages/BlogPage.tsx:31:49)
+    at RenderedRoute (http://localhost:8085/node_modules/.vite/deps/react-router-dom.js?v=d1a490f1:4088:5)
+    at Routes (http://localhost:8085/node_modules/.vite/deps/react-router-dom.js?v=d1a490f1:4558:5)
+    at Suspense
+    at Router (http://localhost:8085/node_modules/.vite/deps/react-router-dom.js?v=d1a490f1:4501:15)
+    at BrowserRouter (http://localhost:8085/node_modules/.vite/deps/react-router-dom.js?v=d1a490f1:5247:5)
+    at App @ http://localhost:8085/node_modules/.vite/deps/chunk-6BKLQ22S.js?v=d1a490f1:520

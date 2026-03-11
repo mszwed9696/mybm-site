@@ -28,3 +28,4 @@ dist-ssr
 .env.local
 ubersuggest-audit.zip
 ubersuggest-audit/
+.vercel

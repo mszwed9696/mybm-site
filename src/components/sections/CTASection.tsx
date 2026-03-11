@@ -1,38 +1,69 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { motion } from "motion/react";
 
-export function CTASection() {
-  return (
-    <section className="py-20" style={{ backgroundColor: "#fff" }}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div
-          className="rounded-3xl p-10 md:p-16 text-center"
-          style={{
-            background:
-              "linear-gradient(135deg, #0a0908 0%, #1a1a2e 50%, #16213e 100%)",
-          }}
+export function CTASection({ title, subtitle }: { title?: React.ReactNode; subtitle?: React.ReactNode }) {
+    return (
+        <section
+            className="py-24 md:py-32 relative overflow-hidden"
+            style={{ backgroundColor: "#141419" }}
         >
-          <p className="text-sm font-bold uppercase tracking-widest text-white/40 mb-4">
-            Get Started Today
-          </p>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">
-            Ready to see what marketing{" "}
-            <span style={{ color: "#af3e4d" }}>should</span> look like?
-          </h2>
-          <p className="text-white/60 max-w-lg mx-auto mb-8 text-sm md:text-base">
-            Get a free audit of your current marketing — no obligations, no
-            retainers. Just an honest assessment and actionable next steps.
-          </p>
-          <Link
-            to="/free-audit"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
-            style={{ backgroundColor: "#af3e4d" }}
-          >
-            Request a Free Audit
-            <ArrowRight size={14} />
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
+            {/* Background glow */}
+            <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                    background:
+                        "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(175, 62, 77, 0.06) 0%, transparent 70%)",
+                }}
+            />
+
+            <div className="container-wide relative z-10">
+                <motion.div
+                    className="text-center max-w-2xl mx-auto"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <p className="text-label mb-4">Get Started</p>
+                    <h2
+                        className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+                        style={{
+                            fontFamily: "'Poppins', sans-serif",
+                            color: "var(--brand-light)",
+                        }}
+                    >
+                        {title || "Ready to get started?"}
+                    </h2>
+                    <p
+                        className="text-lg leading-relaxed mb-10"
+                        style={{ color: "rgba(244, 244, 245, 0.5)" }}
+                    >
+                        {subtitle || (
+                            <>
+                                Get a free audit of your current marketing — no obligations.<br />
+                                Just an honest assessment and actionable next steps.
+                            </>
+                        )}
+                    </p>
+
+                    <div className="flex flex-wrap items-center justify-center gap-4">
+                        <Link
+                            to="/free-audit"
+                            className="btn-pill-primary inline-flex items-center gap-2"
+                        >
+                            Talk to Us
+                            <ArrowRight size={16} />
+                        </Link>
+                        <Link
+                            to="/services"
+                            className="btn-pill-outline inline-flex items-center gap-2"
+                        >
+                            See What We Do
+                        </Link>
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    );
 }

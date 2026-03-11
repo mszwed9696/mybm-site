@@ -8,10 +8,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
  * TooltipProvider wraps nothing critical here — tooltips still work in isolation.
  */
 export default function LazyProviders() {
-    return (
-        <TooltipProvider>
-            <Toaster />
-            <Sonner />
-        </TooltipProvider>
-    );
+ return (
+ <TooltipProvider>
+ <Toaster />
+ <Sonner />
+ </TooltipProvider>
+ );
 }

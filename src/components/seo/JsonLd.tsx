@@ -1,112 +1,112 @@
 import { useEffect } from "react";
 
 interface FAQItem {
-  question: string;
-  answer: string;
+ question: string;
+ answer: string;
 }
 
 interface BreadcrumbItem {
-  name: string;
-  path: string;
+ name: string;
+ path: string;
 }
 
 interface JsonLdProps {
-  type: "FAQPage" | "Service" | "Organization" | "BreadcrumbList" | "WebSite";
-  faqs?: FAQItem[];
-  serviceName?: string;
-  serviceDescription?: string;
-  breadcrumbs?: BreadcrumbItem[];
+ type: "FAQPage" | "Service" | "Organization" | "BreadcrumbList" | "WebSite";
+ faqs?: FAQItem[];
+ serviceName?: string;
+ serviceDescription?: string;
+ breadcrumbs?: BreadcrumbItem[];
 }
 
 const BASE_URL = "https://mindyourbusiness.media";
 
 export function JsonLd({ type, faqs, serviceName, serviceDescription, breadcrumbs }: JsonLdProps) {
-  useEffect(() => {
-    const id = `jsonld-${type}-${serviceName?.replace(/\s/g, "-") || "org"}`;
-    let script = document.getElementById(id) as HTMLScriptElement | null;
-    if (!script) {
-      script = document.createElement("script");
-      script.id = id;
-      script.type = "application/ld+json";
-      document.head.appendChild(script);
-    }
+ useEffect(() => {
+ const id = `jsonld-${type}-${serviceName?.replace(/\s/g, "-") || "org"}`;
+ let script = document.getElementById(id) as HTMLScriptElement | null;
+ if (!script) {
+ script = document.createElement("script");
+ script.id = id;
+ script.type = "application/ld+json";
+ document.head.appendChild(script);
+ }
 
-    let data: Record<string, unknown>;
+ let data: Record<string, unknown>;
 
-    if (type === "FAQPage" && faqs?.length) {
-      data = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
-      };
-    } else if (type === "Service") {
-      data = {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: serviceName,
-        description: serviceDescription,
-        provider: {
-          "@type": "Organization",
-          name: "Mind Your Business Media",
-          url: BASE_URL,
-        },
-        areaServed: "US",
-        serviceType: "Marketing Agency",
-      };
-    } else if (type === "BreadcrumbList" && breadcrumbs?.length) {
-      data = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: breadcrumbs.map((item, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          name: item.name,
-          item: `${BASE_URL}${item.path}`,
-        })),
-      };
-    } else if (type === "WebSite") {
-      data = {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        name: "Mind Your Business Media",
-        url: BASE_URL,
-        description:
-          "Full-service performance marketing agency serving 27+ industries with ad campaigns, SEO, AI solutions, and more — no retainers.",
-        publisher: {
-          "@type": "Organization",
-          name: "Mind Your Business Media",
-          url: BASE_URL,
-        },
-      };
-    } else {
-      data = {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        name: "Mind Your Business Media",
-        url: BASE_URL,
-        description:
-          "Full-service performance marketing agency serving 27+ industries with ad campaigns, SEO, AI solutions, and more — no retainers.",
-        contactPoint: {
-          "@type": "ContactPoint",
-          email: "hello@mindyourbusiness.media",
-          contactType: "sales",
-        },
-      };
-    }
+ if (type === "FAQPage" && faqs?.length) {
+ data = {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ mainEntity: faqs.map((faq) => ({
+ "@type": "Question",
+ name: faq.question,
+ acceptedAnswer: {
+ "@type": "Answer",
+ text: faq.answer,
+ },
+ })),
+ };
+ } else if (type === "Service") {
+ data = {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ name: serviceName,
+ description: serviceDescription,
+ provider: {
+ "@type": "Organization",
+ name: "Mind Your Business Media",
+ url: BASE_URL,
+ },
+ areaServed: "US",
+ serviceType: "Marketing Agency",
+ };
+ } else if (type === "BreadcrumbList" && breadcrumbs?.length) {
+ data = {
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ itemListElement: breadcrumbs.map((item, index) => ({
+ "@type": "ListItem",
+ position: index + 1,
+ name: item.name,
+ item: `${BASE_URL}${item.path}`,
+ })),
+ };
+ } else if (type === "WebSite") {
+ data = {
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ name: "Mind Your Business Media",
+ url: BASE_URL,
+ description:
+ "Full-service performance marketing agency serving 27+ industries with ad campaigns, SEO, AI solutions, and more — results-driven strategies.",
+ publisher: {
+ "@type": "Organization",
+ name: "Mind Your Business Media",
+ url: BASE_URL,
+ },
+ };
+ } else {
+ data = {
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ name: "Mind Your Business Media",
+ url: BASE_URL,
+ description:
+ "Full-service performance marketing agency serving 27+ industries with ad campaigns, SEO, AI solutions, and more — results-driven strategies.",
+ contactPoint: {
+ "@type": "ContactPoint",
+ email: "hello@mindyourbusiness.media",
+ contactType: "sales",
+ },
+ };
+ }
 
-    script.textContent = JSON.stringify(data);
+ script.textContent = JSON.stringify(data);
 
-    return () => {
-      script?.remove();
-    };
-  }, [type, faqs, serviceName, serviceDescription, breadcrumbs]);
+ return () => {
+ script?.remove();
+ };
+ }, [type, faqs, serviceName, serviceDescription, breadcrumbs]);
 
-  return null;
+ return null;
 }

@@ -7,7 +7,7 @@ const SEOPage = lazy(() => import("./pages/SEOPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 interface SEOCatchAllProps {
-    fallback?: React.ReactNode;
+ fallback?: React.ReactNode;
 }
 
 /**
@@ -16,26 +16,26 @@ interface SEOCatchAllProps {
  * when a user navigates to a path not matched by explicit routes.
  */
 export default function SEOCatchAll({ fallback }: SEOCatchAllProps) {
-    const { pathname } = useLocation();
-    const slug = pathname.replace(/^\//, "");
+ const { pathname } = useLocation();
+ const slug = pathname.replace(/^\//, "");
 
-    const isSeoPage = useMemo(
-        () => seoPageSlugs.includes(slug),
-        [slug]
-    );
+ const isSeoPage = useMemo(
+ () => seoPageSlugs.includes(slug),
+ [slug]
+ );
 
-    if (isSeoPage) {
-        return (
-            <Suspense fallback={null}>
-                <SEOPage />
-            </Suspense>
-        );
-    }
+ if (isSeoPage) {
+ return (
+ <Suspense fallback={null}>
+ <SEOPage />
+ </Suspense>
+ );
+ }
 
-    // Not an SEO page — show 404
-    return (
-        <Suspense fallback={null}>
-            {fallback || <NotFound />}
-        </Suspense>
-    );
+ // Not an SEO page — show 404
+ return (
+ <Suspense fallback={null}>
+ {fallback || <NotFound />}
+ </Suspense>
+ );
 }

@@ -1,368 +1,344 @@
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, ArrowRight, Phone, LogIn } from "lucide-react";
-import { useState, useEffect, useRef, useCallback } from "react";
-import {
-  mainNavSections,
-  type NavSection,
-} from "@/data/navigationData";
+import { X, ArrowRight, Phone, LogIn, ChevronDown } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { mainNavSections, NavSection } from "@/data/navigationData";
+import { motion, AnimatePresence } from "motion/react";
 import logoImg from "@/assets/mybm-logo.webp";
+import logoTransparent from "@/assets/logo-transparent.webp";
 
 export function Header() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileAccordion, setMobileAccordion] = useState<number | null>(null);
-  const location = useLocation();
-  const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const headerRef = useRef<HTMLElement>(null);
+    const [overlayOpen, setOverlayOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [expandedSection, setExpandedSection] = useState<string | null>(null);
+    const location = useLocation();
 
-  // Close everything on route change
-  useEffect(() => {
-    setMobileOpen(false);
-    setActiveDropdown(null);
-    setMobileAccordion(null);
-  }, [location.pathname]);
+    // Close on route change
+    useEffect(() => {
+        setOverlayOpen(false);
+        setExpandedSection(null);
+    }, [location.pathname]);
 
-  // Scroll detection
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    // Scroll detection
+    useEffect(() => {
+        const onScroll = () => setIsScrolled(window.scrollY > 50);
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
 
-  // Click outside to close
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
-        setActiveDropdown(null);
-      }
+    // Lock body scroll when overlay open
+    useEffect(() => {
+        document.body.style.overflow = overlayOpen ? "hidden" : "";
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [overlayOpen]);
+
+    const toggleOverlay = useCallback(() => {
+        setOverlayOpen((prev) => !prev);
+        if (overlayOpen) {
+            setExpandedSection(null);
+        }
+    }, [overlayOpen]);
+
+    const toggleAccordion = (label: string) => {
+        setExpandedSection((prev) => (prev === label ? null : label));
     };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
 
-  const openDropdown = useCallback((idx: number) => {
-    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
-    setActiveDropdown(idx);
-  }, []);
-
-  const closeDropdown = useCallback(() => {
-    dropdownTimeout.current = setTimeout(() => {
-      setActiveDropdown(null);
-    }, 200);
-  }, []);
-
-  const cancelClose = useCallback(() => {
-    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
-  }, []);
-
-  return (
-    <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50">
-      {/* ── Floating pill container ── */}
-      <div className="px-4 pt-3">
-        <nav
-          className={`
-            max-w-6xl mx-auto px-4 sm:px-6 transition-all duration-500
-            ${isScrolled
-              ? "rounded-2xl shadow-lg"
-              : "rounded-2xl"
-            }
-          `}
-          style={{
-            backgroundColor: isScrolled
-              ? "rgba(255, 255, 255, 0.82)"
-              : "rgba(255, 255, 255, 0.65)",
-            backdropFilter: "blur(20px) saturate(180%)",
-            WebkitBackdropFilter: "blur(20px) saturate(180%)",
-            border: "1px solid rgba(255, 255, 255, 0.3)",
-            boxShadow: isScrolled
-              ? "0 4px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04)"
-              : "0 2px 20px rgba(0, 0, 0, 0.04)",
-          }}
-        >
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link to="/" className="shrink-0 pl-1">
-              <img
-                src={logoImg}
-                alt="Mind Your Business Media"
-                className="h-14 w-auto"
-                width={140}
-                height={56}
-                fetchPriority="high"
-              />
-            </Link>
-
-            {/* ── Desktop nav links ── */}
-            <div className="hidden lg:flex items-center gap-0.5">
-              {mainNavSections.map((section, idx) => (
-                <div
-                  key={section.label}
-                  className="relative"
-                  onMouseEnter={() => openDropdown(idx)}
-                  onMouseLeave={closeDropdown}
-                >
-                  <button
-                    className={`flex items-center gap-1 px-3 py-1.5 text-[13px] font-medium rounded-lg transition-all duration-200 ${activeDropdown === idx
-                      ? "text-[#af3e4d] bg-[#af3e4d]/5"
-                      : "text-[#374151] hover:text-[#af3e4d]"
-                      }`}
-                    onClick={() =>
-                      setActiveDropdown(activeDropdown === idx ? null : idx)
-                    }
-                    aria-expanded={activeDropdown === idx}
-                  >
-                    {section.label}
-                    <ChevronDown
-                      size={13}
-                      className={`transition-transform duration-200 ${activeDropdown === idx ? "rotate-180" : ""
-                        }`}
-                    />
-                  </button>
-                </div>
-              ))}
-            </div>
-
-            {/* ── Desktop right controls ── */}
-            <div className="hidden lg:flex items-center gap-2">
-              <a
-                href="tel:+18563504733"
-                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-[#546a7b] hover:text-[#af3e4d] transition-colors"
-              >
-                <Phone size={12} />
-                (856) 350-4733
-              </a>
-              <a
-                href="https://app.mindyourbusiness.media"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 px-3 py-1.5 text-[13px] font-medium text-[#374151] hover:text-[#af3e4d] transition-colors"
-              >
-                <LogIn size={14} />
-                Login
-              </a>
-              <Link
-                to="/free-audit"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-lg"
+    return (
+        <>
+            {/* ── Fixed top bar ── */}
+            <header
+                className="fixed top-0 left-0 right-0 z-[60] transition-all duration-500"
                 style={{
-                  backgroundColor: "#af3e4d",
-                  boxShadow: "0 2px 8px rgba(175, 62, 77, 0.25)",
+                    backgroundColor: "transparent",
+                    borderBottom: isScrolled
+                        ? "1px solid rgba(255,255,255,0.05)"
+                        : "1px solid transparent",
                 }}
-              >
-                Free Audit
-                <ArrowRight size={12} />
-              </Link>
-            </div>
-
-            {/* ── Mobile burger ── */}
-            <button
-              className="lg:hidden p-2 text-gray-700 rounded-lg hover:bg-gray-100/50 transition-colors"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
             >
-              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-            </button>
-          </div>
-        </nav>
-      </div>
+                <div className="container-wide">
+                    <div className="flex items-center justify-between h-20 md:h-24">
+                        {/* Extended Logo */}
+                        <Link to="/" className="shrink-0 relative z-[60]">
+                            <img
+                                src={logoTransparent}
+                                alt="Mind Your Business Media"
+                                className="h-20 md:h-28 w-auto transition-opacity duration-300"
+                                width={240}
+                                height={80}
+                                fetchPriority="high"
+                            />
+                        </Link>
 
-      {/* ── Desktop mega-menu panels ── */}
-      {activeDropdown !== null && (
-        <div
-          className="hidden lg:block absolute left-1/2 -translate-x-1/2 mt-2"
-          style={{
-            width: "min(900px, calc(100vw - 3rem))",
-          }}
-          onMouseEnter={cancelClose}
-          onMouseLeave={closeDropdown}
-        >
-          <div
-            className="rounded-2xl overflow-hidden"
-            style={{
-              backgroundColor: "rgba(255, 255, 255, 0.92)",
-              backdropFilter: "blur(20px) saturate(180%)",
-              WebkitBackdropFilter: "blur(20px) saturate(180%)",
-              border: "1px solid rgba(255, 255, 255, 0.3)",
-              boxShadow: "0 20px 60px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.06)",
-            }}
-          >
-            <MegaMenuPanel section={mainNavSections[activeDropdown]} />
-          </div>
-        </div>
-      )}
+                        {/* Right side: CTA + Hamburger */}
+                        <div className="flex items-center gap-4 md:gap-6 relative z-[60]">
+                            {/* Desktop phone + login */}
+                            <a
+                                href="tel:+18563504733"
+                                className="hidden lg:flex items-center gap-1.5 text-xs font-medium transition-colors"
+                                style={{ color: "rgba(244,244,245,0.6)" }}
+                            >
+                                <Phone size={12} />
+                                (856) 350-4733
+                            </a>
+                            <a
+                                href="https://app.mindyourbusiness.media"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hidden lg:flex items-center gap-1 text-sm font-medium transition-colors"
+                                style={{ color: "rgba(244,244,245,0.6)" }}
+                            >
+                                <LogIn size={14} />
+                                Login
+                            </a>
 
-      {/* ── Mobile menu ── */}
-      {mobileOpen && (
-        <div className="lg:hidden px-4 mt-2">
-          <div
-            className="rounded-2xl overflow-hidden overflow-y-auto"
-            style={{
-              backgroundColor: "rgba(255, 255, 255, 0.95)",
-              backdropFilter: "blur(20px)",
-              WebkitBackdropFilter: "blur(20px)",
-              border: "1px solid rgba(255, 255, 255, 0.3)",
-              boxShadow: "0 20px 60px rgba(0, 0, 0, 0.12)",
-              maxHeight: "calc(100vh - 100px)",
-            }}
-          >
-            <div className="p-4 space-y-1">
-              {mainNavSections.map((section, idx) => (
-                <MobileAccordion
-                  key={section.label}
-                  section={section}
-                  isOpen={mobileAccordion === idx}
-                  onToggle={() =>
-                    setMobileAccordion(mobileAccordion === idx ? null : idx)
-                  }
-                />
-              ))}
+                            {/* CTA button */}
+                            <Link
+                                to="/free-audit"
+                                className="hidden sm:inline-flex btn-pill-primary !py-2.5 !px-6 !text-xs"
+                            >
+                                Let's Talk
+                            </Link>
 
-              {/* Divider + actions */}
-              <div className="pt-3 mt-3 border-t border-gray-200/50">
-                <a
-                  href="https://app.mindyourbusiness.media"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 py-2.5 text-sm font-medium text-gray-700 hover:text-[#af3e4d]"
-                >
-                  <LogIn size={15} />
-                  Client Login
-                </a>
-              </div>
+                            {/* Hamburger */}
+                            <button
+                                className="w-12 h-12 flex flex-col items-center justify-center gap-1.5 group rounded-full transition-colors"
+                                onClick={toggleOverlay}
+                                aria-label={overlayOpen ? "Close menu" : "Open menu"}
+                                style={{ backgroundColor: overlayOpen ? "rgba(255,255,255,0.1)" : "transparent" }}
+                            >
+                                <span
+                                    className={`block h-[2px] bg-white transition-all duration-300 ${overlayOpen
+                                        ? "w-6 rotate-45 translate-y-[4px]"
+                                        : "w-8 group-hover:w-6"
+                                        }`}
+                                />
+                                <span
+                                    className={`block h-[2px] bg-white transition-all duration-300 ${overlayOpen
+                                        ? "w-6 -rotate-45 -translate-y-[4px]"
+                                        : "w-8 group-hover:w-7"
+                                        }`}
+                                />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
 
-              {/* Mobile CTA */}
-              <Link
-                to="/free-audit"
-                className="flex items-center justify-center gap-2 mt-4 px-6 py-3 rounded-xl text-sm font-bold text-white"
-                style={{
-                  backgroundColor: "#af3e4d",
-                  boxShadow: "0 2px 8px rgba(175, 62, 77, 0.25)",
-                }}
-              >
-                Request an Audit
-                <ArrowRight size={14} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
-    </header>
-  );
-}
+            {/* ── Full-screen overlay nav ── */}
+            <AnimatePresence>
+                {overlayOpen && (
+                    <motion.div
+                        className="fixed inset-0 z-[55] overflow-y-auto"
+                        style={{ backgroundColor: "rgba(12, 12, 15, 0.98)" }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        onClick={() => setOverlayOpen(false)}
+                    >
+                        {/* Interior container with preventDefault on click so clicking links/menus doesn't close overlay */}
+                        <div
+                            className="min-h-full flex flex-col justify-center container-wide py-32"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <nav className="grid md:grid-cols-2 gap-8 lg:gap-16 items-start">
+                                {/* ── Main nav accordion ── */}
+                                <div className="space-y-1">
+                                    {mainNavSections.map((section: NavSection, idx) => (
+                                        <div
+                                            key={section.label}
+                                            className="border-b border-white/5 last:border-0"
+                                        >
+                                            <button
+                                                className="w-full text-left flex items-center justify-between py-4 md:py-5 group"
+                                                onClick={() => toggleAccordion(section.label)}
+                                            >
+                                                <div className="flex items-baseline gap-4 md:gap-6">
+                                                    <span
+                                                        className="text-xs font-mono"
+                                                        style={{ color: "var(--brand-crimson)" }}
+                                                    >
+                                                        0{idx + 1}
+                                                    </span>
+                                                    <span
+                                                        className="text-2xl md:text-4xl lg:text-5xl font-bold transition-colors duration-200 group-hover:text-white"
+                                                        style={{
+                                                            fontFamily: "'Poppins', sans-serif",
+                                                            color:
+                                                                expandedSection === section.label
+                                                                    ? "var(--brand-light)"
+                                                                    : "rgba(244,244,245,0.6)",
+                                                        }}
+                                                    >
+                                                        {section.label}
+                                                    </span>
+                                                </div>
+                                                <ChevronDown
+                                                    className={`transition-transform duration-300 ${expandedSection === section.label ? "rotate-180" : ""
+                                                        }`}
+                                                    style={{ color: "rgba(244,244,245,0.4)" }}
+                                                />
+                                            </button>
 
-/* ═══════════════════════════════════════════
-   Desktop Mega-Menu Panel
-   ═══════════════════════════════════════════ */
-function MegaMenuPanel({ section }: { section: NavSection }) {
-  return (
-    <div className="px-6 py-6">
-      <div
-        className="grid gap-6"
-        style={{
-          gridTemplateColumns: section.featured
-            ? `repeat(${section.columns.length}, 1fr) minmax(200px, 1fr)`
-            : `repeat(${section.columns.length}, 1fr)`,
-        }}
-      >
-        {section.columns.map((col) => (
-          <div key={col.heading}>
-            {col.heading && (
-              <h4 className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-2.5">
-                {col.heading}
-              </h4>
-            )}
-            <div className="space-y-1">
-              {col.items.map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className="block p-2 -mx-2 rounded-lg transition-colors hover:bg-gray-50/80 group"
-                >
-                  <div className="text-[13px] font-semibold text-gray-900 group-hover:text-[#af3e4d] transition-colors">
-                    {item.label}
-                  </div>
-                  {item.description && (
-                    <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">
-                      {item.description}
-                    </p>
-                  )}
-                </Link>
-              ))}
-            </div>
-          </div>
-        ))}
+                                            <AnimatePresence>
+                                                {expandedSection === section.label && (
+                                                    <motion.div
+                                                        initial={{ height: 0, opacity: 0 }}
+                                                        animate={{ height: "auto", opacity: 1 }}
+                                                        exit={{ height: 0, opacity: 0 }}
+                                                        transition={{ duration: 0.3 }}
+                                                        className="overflow-hidden"
+                                                    >
+                                                        <div className="pb-6 pl-10 md:pl-14 grid sm:grid-cols-2 gap-x-8 gap-y-6">
+                                                            {section.columns.map((col) => (
+                                                                <div key={col.heading}>
+                                                                    {col.heading && (
+                                                                        <h4
+                                                                            className="text-xs uppercase tracking-wider font-bold mb-3"
+                                                                            style={{ color: "rgba(244,244,245,0.3)" }}
+                                                                        >
+                                                                            {col.heading}
+                                                                        </h4>
+                                                                    )}
+                                                                    <ul className="space-y-2">
+                                                                        {col.items.map((item) => (
+                                                                            <li key={item.label}>
+                                                                                <Link
+                                                                                    to={item.href}
+                                                                                    className="text-sm md:text-base hover:text-white transition-colors block"
+                                                                                    style={{
+                                                                                        color: "rgba(244,244,245,0.7)",
+                                                                                    }}
+                                                                                    onClick={() => setOverlayOpen(false)}
+                                                                                >
+                                                                                    {item.label}
+                                                                                </Link>
+                                                                            </li>
+                                                                        ))}
+                                                                    </ul>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
+                                        </div>
+                                    ))}
 
-        {/* Featured column */}
-        {section.featured && (
-          <div className="rounded-xl p-4" style={{ backgroundColor: "rgba(243, 244, 246, 0.7)" }}>
-            <h4 className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-2.5">
-              {section.featured.heading}
-            </h4>
-            <Link to={section.featured.href} className="block group">
-              <p className="text-[13px] font-bold text-gray-900 group-hover:text-[#af3e4d] transition-colors">
-                {section.featured.title}
-              </p>
-              <p className="text-xs text-gray-500 mt-1 leading-relaxed">
-                {section.featured.description}
-              </p>
-              <span className="inline-flex items-center gap-1 mt-2.5 text-xs font-bold text-[#af3e4d]">
-                Learn more <ArrowRight size={12} />
-              </span>
-            </Link>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
+                                    {/* Extra links */}
+                                    <div className="pt-8 mt-4 space-y-3">
+                                        <Link
+                                            to="/blog"
+                                            className="block text-lg font-medium transition-colors hover:text-white"
+                                            style={{ color: "rgba(244,244,245,0.5)" }}
+                                            onClick={() => setOverlayOpen(false)}
+                                        >
+                                            Insights & Blog
+                                        </Link>
+                                        <Link
+                                            to="/about"
+                                            className="block text-lg font-medium transition-colors hover:text-white"
+                                            style={{ color: "rgba(244,244,245,0.5)" }}
+                                            onClick={() => setOverlayOpen(false)}
+                                        >
+                                            About Mind Your Business Media
+                                        </Link>
+                                        <Link
+                                            to="/blog/case-studies"
+                                            className="block text-lg font-medium transition-colors hover:text-white"
+                                            style={{ color: "rgba(244,244,245,0.5)" }}
+                                            onClick={() => setOverlayOpen(false)}
+                                        >
+                                            Case Studies
+                                        </Link>
+                                    </div>
+                                </div>
 
-/* ═══════════════════════════════════════════
-   Mobile Accordion
-   ═══════════════════════════════════════════ */
-function MobileAccordion({
-  section,
-  isOpen,
-  onToggle,
-}: {
-  section: NavSection;
-  isOpen: boolean;
-  onToggle: () => void;
-}) {
-  return (
-    <div>
-      <button
-        className="flex items-center justify-between w-full py-3 text-sm font-semibold text-gray-800"
-        onClick={onToggle}
-      >
-        {section.label}
-        <ChevronDown
-          size={16}
-          className={`transition-transform duration-200 text-gray-400 ${isOpen ? "rotate-180" : ""
-            }`}
-        />
-      </button>
-      {isOpen && (
-        <div className="pb-3 pl-3 space-y-1">
-          {section.columns.map((col) => (
-            <div key={col.heading} className="mb-3">
-              {col.heading && (
-                <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5">
-                  {col.heading}
-                </p>
-              )}
-              {col.items.map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className="block py-1.5 text-sm text-gray-600 hover:text-[#af3e4d]"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
+                                {/* ── Right column: CTA + contact ── */}
+                                <div className="flex flex-col justify-between pt-8 md:pt-0">
+                                    <div>
+                                        <p
+                                            className="text-sm font-bold uppercase tracking-widest mb-4"
+                                            style={{ color: "var(--brand-crimson)" }}
+                                        >
+                                            Ready to grow?
+                                        </p>
+                                        <p
+                                            className="text-lg md:text-xl leading-relaxed mb-8"
+                                            style={{
+                                                fontFamily: "'Poppins', sans-serif",
+                                                color: "rgba(244,244,245,0.7)",
+                                            }}
+                                        >
+                                            You've built a million-dollar business.
+                                            <br />
+                                            <strong style={{ color: "var(--brand-light)" }}>
+                                                Market like it.
+                                            </strong>
+                                        </p>
+                                        <Link
+                                            to="/free-audit"
+                                            className="btn-pill-outline inline-flex items-center gap-2"
+                                            onClick={() => setOverlayOpen(false)}
+                                        >
+                                            Talk to Us
+                                            <ArrowRight size={16} />
+                                        </Link>
+                                    </div>
+
+                                    {/* Contact info */}
+                                    <div className="mt-12 space-y-3">
+                                        <a
+                                            href="tel:+18563504733"
+                                            className="block text-sm hover:text-white transition-colors"
+                                            style={{ color: "rgba(244,244,245,0.4)" }}
+                                        >
+                                            (856) 350-4733
+                                        </a>
+                                        <a
+                                            href="mailto:hello@mindyourbusiness.media"
+                                            className="block text-sm hover:text-white transition-colors"
+                                            style={{ color: "rgba(244,244,245,0.4)" }}
+                                        >
+                                            hello@mindyourbusiness.media
+                                        </a>
+                                        <div
+                                            className="flex gap-6 pt-4 text-sm"
+                                            style={{ color: "rgba(244,244,245,0.3)" }}
+                                        >
+                                            <a
+                                                href="https://www.instagram.com/myb.media/"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="hover:text-white transition-colors"
+                                            >
+                                                Instagram
+                                            </a>
+                                            <a
+                                                href="https://www.facebook.com/"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="hover:text-white transition-colors"
+                                            >
+                                                Facebook
+                                            </a>
+                                            <a
+                                                href="https://www.linkedin.com/"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="hover:text-white transition-colors"
+                                            >
+                                                LinkedIn
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
+    );
 }

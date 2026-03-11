@@ -8,9 +8,9 @@ import type { RecommendedOffer } from "@/config/routingRules";
 import { generateRedirectToken } from "@/lib/routing/tokenGenerator";
 
 export interface ComputedRoute {
-    route_to: string;
-    recommended_offer: RecommendedOffer;
-    redirect_token: string;
+ route_to: string;
+ recommended_offer: RecommendedOffer;
+ redirect_token: string;
 }
 
 /**
@@ -20,13 +20,13 @@ export interface ComputedRoute {
  * No side effects. Fully testable.
  */
 export function computeRoute(answers: QuizAnswers): ComputedRoute {
-    const route_to = PAIN_ROUTE_MAP[answers.primary_pain] || "/problems/low-roas";
-    const recommended_offer = computeRecommendedOffer(answers);
-    const redirect_token = generateRedirectToken(answers.email, Date.now());
+ const route_to = PAIN_ROUTE_MAP[answers.primary_pain] || "/problems/low-roas";
+ const recommended_offer = computeRecommendedOffer(answers);
+ const redirect_token = generateRedirectToken(answers.email, Date.now());
 
-    return {
-        route_to,
-        recommended_offer,
-        redirect_token,
-    };
+ return {
+ route_to,
+ recommended_offer,
+ redirect_token,
+ };
 }

@@ -4,25 +4,25 @@ import { allSeoPages } from "@/data/seoPages";
 import NotFound from "./NotFound";
 
 export default function SEOPage() {
-  const location = useLocation();
-  const slug = location.pathname.replace(/^\//, "");
-  const pageData = allSeoPages.find((p) => p.slug === slug);
+ const location = useLocation();
+ const slug = location.pathname.replace(/^\//, "");
+ const pageData = allSeoPages.find((p) => p.slug === slug);
 
-  if (!pageData) {
-    return <NotFound />;
-  }
+ if (!pageData) {
+ return <NotFound />;
+ }
 
-  return (
-    <SEOLandingPage
-      key={slug}
-      meta={pageData.meta}
-      hero={pageData.hero}
-      intro={pageData.intro}
-      sections={pageData.sections}
-      faqs={pageData.faqs}
-      relatedPages={pageData.relatedPages}
-      ctaTitle={pageData.ctaTitle}
-      ctaSubtitle={pageData.ctaSubtitle}
-    />
-  );
+ return (
+ <SEOLandingPage
+ key={slug}
+ meta={pageData.meta}
+ hero={pageData.hero}
+ intro={pageData.intro}
+ sections={pageData.sections}
+ faqs={pageData.faqs}
+ relatedPages={pageData.relatedPages}
+ ctaTitle={pageData.ctaTitle}
+ ctaSubtitle={pageData.ctaSubtitle}
+ />
+ );
 }

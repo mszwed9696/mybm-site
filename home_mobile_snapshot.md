@@ -1,0 +1,307 @@
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e6]:
+        - link "Mind Your Business Media" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "Mind Your Business Media" [ref=e8]
+        - button "Open menu" [ref=e10] [cursor=pointer]
+    - main [ref=e13]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - paragraph [ref=e21]: Premier Marketing Agency
+          - heading "Mind Your Business. We'll make sure everyone else does too." [level=1] [ref=e22]:
+            - text: Mind Your Business.
+            - emphasis [ref=e23]: We'll make sure everyone else does too.
+          - paragraph [ref=e24]:
+            - text: You've built a million-dollar business.
+            - strong [ref=e25]: Market like it.
+            - text: We combine AI-powered lead generation, precision ad spend, and data-driven retargeting to ensure
+            - strong [ref=e26]: no lead slips through the cracks.
+          - generic [ref=e27]:
+            - link "Let's Talk" [ref=e28] [cursor=pointer]:
+              - /url: /free-audit
+              - text: Let's Talk
+              - img [ref=e29]
+            - link "What We Do" [ref=e31] [cursor=pointer]:
+              - /url: /services
+        - img [ref=e34]
+      - generic [ref=e36]:
+        - generic [ref=e38]:
+          - paragraph [ref=e39]: The Mind Your Business Media Difference
+          - heading "A relentless pursuit of growth for your business." [level=2] [ref=e40]:
+            - text: A relentless pursuit of
+            - emphasis [ref=e41]: growth
+            - text: for your business.
+          - generic [ref=e42]:
+            - generic [ref=e43]:
+              - paragraph [ref=e44]: More
+              - heading "Powerful Data" [level=3] [ref=e45]
+              - paragraph [ref=e46]: Precision targeting through first-party data collection, cross-channel attribution, and real-time performance dashboards.
+            - generic [ref=e47]:
+              - paragraph [ref=e48]: More
+              - heading "Qualified Leads" [level=3] [ref=e49]
+              - paragraph [ref=e50]: AI-powered lead generation that identifies, nurtures, and scores prospects so your sales team only talks to buyers.
+            - generic [ref=e51]:
+              - paragraph [ref=e52]: More
+              - heading "Accountable Spend" [level=3] [ref=e53]
+              - paragraph [ref=e54]: Every dollar tracked, every campaign measured. We optimize relentlessly so you never waste ad budget again.
+            - generic [ref=e55]:
+              - paragraph [ref=e56]: More
+              - heading "Profitable Growth" [level=3] [ref=e57]
+              - paragraph [ref=e58]: Retargeting, automation, and full-funnel strategy that compounds your revenue month over month.
+          - link "Explore Our Services" [ref=e60] [cursor=pointer]:
+            - /url: /services
+            - text: Explore Our Services
+            - img [ref=e61]
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - paragraph [ref=e66]: Trusted by industry leaders
+            - generic [ref=e68]:
+              - list [ref=e69]:
+                - listitem [ref=e70]:
+                  - img "Google" [ref=e71]
+                - listitem [ref=e72]:
+                  - img "Meta" [ref=e73]
+                - listitem [ref=e74]:
+                  - img "Shopify" [ref=e75]
+                - listitem [ref=e76]:
+                  - img "TikTok" [ref=e77]
+                - listitem [ref=e78]:
+                  - img "HubSpot" [ref=e79]
+                - listitem [ref=e80]:
+                  - img "Stripe" [ref=e81]
+              - list [ref=e82]:
+                - listitem [ref=e83]:
+                  - img "Google" [ref=e84]
+                - listitem [ref=e85]:
+                  - img "Meta" [ref=e86]
+                - listitem [ref=e87]:
+                  - img "Shopify" [ref=e88]
+                - listitem [ref=e89]:
+                  - img "TikTok" [ref=e90]
+                - listitem [ref=e91]:
+                  - img "HubSpot" [ref=e92]
+                - listitem [ref=e93]:
+                  - img "Stripe" [ref=e94]
+          - generic [ref=e95]:
+            - paragraph [ref=e96]: Client Success
+            - heading "Building trust, driving more growth" [level=2] [ref=e97]:
+              - text: Building trust, driving
+              - emphasis [ref=e98]: more
+              - text: growth
+          - generic [ref=e99]:
+            - generic [ref=e100]:
+              - img [ref=e101]
+              - generic [ref=e104]:
+                - img [ref=e105]
+                - img [ref=e107]
+                - img [ref=e109]
+                - img [ref=e111]
+                - img [ref=e113]
+              - paragraph [ref=e115]: "\"Mind Your Business Media completely transformed our online presence. We went from barely showing up on Google to dominating the first page in our area.\""
+              - generic [ref=e116]:
+                - generic [ref=e117]: S
+                - generic [ref=e118]:
+                  - paragraph [ref=e119]: Sarah M.
+                  - paragraph [ref=e120]: Real Estate Agent · Real Estate
+            - generic [ref=e121]:
+              - img [ref=e122]
+              - generic [ref=e125]:
+                - img [ref=e126]
+                - img [ref=e128]
+                - img [ref=e130]
+                - img [ref=e132]
+                - img [ref=e134]
+              - paragraph [ref=e136]: "\"The AI automations saved us hours of manual follow-up. Our lead-to-client conversion rate jumped 40% in just 3 months.\""
+              - generic [ref=e137]:
+                - generic [ref=e138]: D
+                - generic [ref=e139]:
+                  - paragraph [ref=e140]: Dr. James K.
+                  - paragraph [ref=e141]: Med Spa Owner · Medical
+            - generic [ref=e142]:
+              - img [ref=e143]
+              - generic [ref=e146]:
+                - img [ref=e147]
+                - img [ref=e149]
+                - img [ref=e151]
+                - img [ref=e153]
+                - img [ref=e155]
+              - paragraph [ref=e157]: "\"Their ad campaigns consistently deliver a 5x ROAS. The data-driven approach means we know exactly what's working and where every dollar goes.\""
+              - generic [ref=e158]:
+                - generic [ref=e159]: M
+                - generic [ref=e160]:
+                  - paragraph [ref=e161]: Marcus T.
+                  - paragraph [ref=e162]: E-Commerce Founder · Supplements
+        - generic [ref=e165]:
+          - generic [ref=e166]:
+            - paragraph [ref=e167]: The Mind Your Business Media Method
+            - heading "Our integrated system for driving exceptional results" [level=2] [ref=e168]:
+              - text: Our
+              - emphasis [ref=e169]: integrated system
+              - text: for driving exceptional results
+            - paragraph [ref=e170]: Nobody minds your business like we do. Our methodology isn't a checklist — it's a flywheel. Each stage feeds the next, compounding your growth with every cycle.
+          - generic [ref=e173]:
+            - generic [ref=e174]:
+              - generic [ref=e176]: "01"
+              - generic [ref=e177]:
+                - paragraph [ref=e178]: Precision Targeting
+                - heading "Data-Driven" [level=3] [ref=e179]
+                - paragraph [ref=e180]: We collect and analyze first-party data to build custom audiences, optimize ad placements, and eliminate wasted spend before it happens.
+            - generic [ref=e181]:
+              - generic [ref=e183]: "02"
+              - generic [ref=e184]:
+                - paragraph [ref=e185]: Automated Intelligence
+                - heading "AI-Powered" [level=3] [ref=e186]
+                - paragraph [ref=e187]: Our AI systems generate leads, score prospects, automate follow-ups, and retarget lost opportunities — 24/7, without missing a beat.
+            - generic [ref=e188]:
+              - generic [ref=e190]: "03"
+              - generic [ref=e191]:
+                - paragraph [ref=e192]: Unified Strategy
+                - heading "Omnichannel" [level=3] [ref=e193]
+                - paragraph [ref=e194]: Google, Meta, TikTok, SEO, Email — every channel works in sync. One integrated system, one source of truth, maximum impact.
+            - generic [ref=e195]:
+              - generic [ref=e197]: "04"
+              - generic [ref=e198]:
+                - paragraph [ref=e199]: Revenue-First Reporting
+                - heading "Results-Based" [level=3] [ref=e200]
+                - paragraph [ref=e201]: We don't measure vanity metrics. Every dashboard, every report, every recommendation ties directly back to revenue and profit growth.
+        - generic [ref=e203]:
+          - generic [ref=e204]:
+            - paragraph [ref=e205]: Credentials That Count
+            - heading "Certified Excellence" [level=2] [ref=e206]:
+              - text: Certified
+              - emphasis [ref=e207]: Excellence
+            - paragraph [ref=e208]: We hold certifications from the platforms that matter most, ensuring your campaigns are managed by verified experts.
+          - generic [ref=e209]:
+            - generic [ref=e210]:
+              - img "Google Partner" [ref=e212]
+              - paragraph [ref=e213]: Google Partner
+              - paragraph [ref=e214]: Certified Google Ads management
+            - generic [ref=e215]:
+              - img "Meta Business Partner" [ref=e217]
+              - paragraph [ref=e218]: Meta Business Partner
+              - paragraph [ref=e219]: Official Meta advertising partner
+        - generic [ref=e222]:
+          - paragraph [ref=e223]: Get Started
+          - heading "Ready to get started?" [level=2] [ref=e224]
+          - paragraph [ref=e225]:
+            - text: Get a free audit of your current marketing — no obligations.
+            - text: Just an honest assessment and actionable next steps.
+          - generic [ref=e226]:
+            - link "Talk to Us" [ref=e227] [cursor=pointer]:
+              - /url: /free-audit
+              - text: Talk to Us
+              - img [ref=e228]
+            - link "See What We Do" [ref=e230] [cursor=pointer]:
+              - /url: /services
+    - contentinfo [ref=e231]:
+      - generic [ref=e232]:
+        - generic [ref=e233]:
+          - generic [ref=e234]:
+            - link "Mind Your Business Media" [ref=e235] [cursor=pointer]:
+              - /url: /
+              - img "Mind Your Business Media" [ref=e236]
+            - paragraph [ref=e237]: Premier marketing for million-dollar businesses. Data-driven strategy, AI-powered execution, results you can measure.
+            - generic [ref=e238]:
+              - link "Instagram" [ref=e239] [cursor=pointer]:
+                - /url: https://www.instagram.com/myb.media/
+              - link "Facebook" [ref=e240] [cursor=pointer]:
+                - /url: https://www.facebook.com/
+              - link "LinkedIn" [ref=e241] [cursor=pointer]:
+                - /url: https://www.linkedin.com/
+          - generic [ref=e242]:
+            - heading "Services" [level=4] [ref=e243]
+            - list [ref=e244]:
+              - listitem [ref=e245]:
+                - link "Marketing Consulting" [ref=e246] [cursor=pointer]:
+                  - /url: /consulting
+              - listitem [ref=e247]:
+                - link "Ad Campaigns" [ref=e248] [cursor=pointer]:
+                  - /url: /services/ad-campaigns
+              - listitem [ref=e249]:
+                - link "SEO & Organic" [ref=e250] [cursor=pointer]:
+                  - /url: /services/seo
+              - listitem [ref=e251]:
+                - link "AI Solutions" [ref=e252] [cursor=pointer]:
+                  - /url: /services/ai-solutions
+              - listitem [ref=e253]:
+                - link "Website Design" [ref=e254] [cursor=pointer]:
+                  - /url: /services/website-design
+              - listitem [ref=e255]:
+                - link "Social Media" [ref=e256] [cursor=pointer]:
+                  - /url: /services/social-media
+              - listitem [ref=e257]:
+                - link "Reviews Management" [ref=e258] [cursor=pointer]:
+                  - /url: /services/reviews
+              - listitem [ref=e259]:
+                - link "Pricing" [ref=e260] [cursor=pointer]:
+                  - /url: /services/pricing
+          - generic [ref=e261]:
+            - heading "Industries" [level=4] [ref=e262]
+            - list [ref=e263]:
+              - listitem [ref=e264]:
+                - link "Home Services" [ref=e265] [cursor=pointer]:
+                  - /url: /industries/hvac
+              - listitem [ref=e266]:
+                - link "Medical & Wellness" [ref=e267] [cursor=pointer]:
+                  - /url: /industries/dentists
+              - listitem [ref=e268]:
+                - link "Real Estate" [ref=e269] [cursor=pointer]:
+                  - /url: /industries/real-estate
+              - listitem [ref=e270]:
+                - link "E-Commerce" [ref=e271] [cursor=pointer]:
+                  - /url: /industries/e-commerce
+              - listitem [ref=e272]:
+                - link "Supplement Brands" [ref=e273] [cursor=pointer]:
+                  - /url: /industries/supplements
+              - listitem [ref=e274]:
+                - link "All Industries" [ref=e275] [cursor=pointer]:
+                  - /url: /industries
+          - generic [ref=e276]:
+            - heading "Resources" [level=4] [ref=e277]
+            - list [ref=e278]:
+              - listitem [ref=e279]:
+                - link "Marketing Quiz" [ref=e280] [cursor=pointer]:
+                  - /url: /resources/marketing-quiz
+              - listitem [ref=e281]:
+                - link "Listing Scan" [ref=e282] [cursor=pointer]:
+                  - /url: /resources/listing-scan
+              - listitem [ref=e283]:
+                - link "Marketing Score" [ref=e284] [cursor=pointer]:
+                  - /url: /resources/marketing-score
+              - listitem [ref=e285]:
+                - link "Blog" [ref=e286] [cursor=pointer]:
+                  - /url: /blog
+              - listitem [ref=e287]:
+                - link "Case Studies" [ref=e288] [cursor=pointer]:
+                  - /url: /blog/case-studies
+          - generic [ref=e289]:
+            - heading "Company" [level=4] [ref=e290]
+            - list [ref=e291]:
+              - listitem [ref=e292]:
+                - link "About Us" [ref=e293] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e294]:
+                - link "Contact Us" [ref=e295] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e296]:
+                - link "Client Reviews" [ref=e297] [cursor=pointer]:
+                  - /url: /about/reviews
+              - listitem [ref=e298]:
+                - link "Client Support" [ref=e299] [cursor=pointer]:
+                  - /url: /support
+              - listitem [ref=e300]:
+                - link "Client Login" [ref=e301] [cursor=pointer]:
+                  - /url: /login
+        - generic [ref=e303]:
+          - generic [ref=e304]:
+            - link "Terms & Conditions" [ref=e305] [cursor=pointer]:
+              - /url: /terms
+            - link "Privacy Policy" [ref=e306] [cursor=pointer]:
+              - /url: /privacy
+          - paragraph [ref=e307]: © 2026 Mind Your Business Media LLC. All Rights Reserved.
+      - generic [ref=e309]: Mind Your Business Media

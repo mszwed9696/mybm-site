@@ -29,11 +29,46 @@ export interface NavSection {
 }
 
 /* ══════════════════════════════════════════════════════
-   1. Digital Marketing Services
-   ══════════════════════════════════════════════════════ */
+ 1. Digital Marketing Services
+ ══════════════════════════════════════════════════════ */
 export const servicesMenu: NavSection = {
     label: "Digital Marketing Services",
     columns: [
+        {
+            heading: "Packages & Consulting",
+            items: [
+                {
+                    label: "Marketing Consulting",
+                    href: "/consulting",
+                    description: "$10k/mo or $100k/yr",
+                },
+                {
+                    label: "The Godfather",
+                    href: "/packages/the-godfather",
+                    description: "$16k/mo + Rev Share",
+                },
+                {
+                    label: "The Underboss",
+                    href: "/packages/the-underboss",
+                    description: "$8k - $12k/mo",
+                },
+                {
+                    label: "The Capo",
+                    href: "/packages/the-capo",
+                    description: "$4k/mo",
+                },
+                {
+                    label: "The Made Man",
+                    href: "/packages/the-made-man",
+                    description: "$1,000 One-Time Setup",
+                },
+                {
+                    label: "The Street Crew",
+                    href: "/packages/the-street-crew",
+                    description: "Custom Scope",
+                },
+            ],
+        },
         {
             heading: "Advertising",
             items: [
@@ -99,7 +134,12 @@ export const servicesMenu: NavSection = {
                     label: "Platform Pricing",
                     href: "/services/pricing",
                     description:
-                        "See how our two-tier pricing (Local & Online) works to meet your unique needs.",
+                        "See how our two-tier pricing works to meet your unique needs.",
+                },
+                {
+                    label: "View All Services",
+                    href: "/services",
+                    description: "Explore the complete suite of our operations.",
                 },
             ],
         },
@@ -108,14 +148,14 @@ export const servicesMenu: NavSection = {
         heading: "Our Approach",
         title: "Two Tiers. Zero Retainers.",
         description:
-            "Choose Local, Online, or both — with proven fast solutions and custom coded options for every need.",
-        href: "/two-tiers",
+            "Premium results-driven strategies designed to scale your business empire.",
+        href: "/services",
     },
 };
 
 /* ══════════════════════════════════════════════════════
-   2. Industries
-   ══════════════════════════════════════════════════════ */
+ 2. Industries
+ ══════════════════════════════════════════════════════ */
 export const industriesMenu: NavSection = {
     label: "Industries",
     columns: [
@@ -170,8 +210,8 @@ export const industriesMenu: NavSection = {
 };
 
 /* ══════════════════════════════════════════════════════
-   3. Resources
-   ══════════════════════════════════════════════════════ */
+ 3. Resources
+ ══════════════════════════════════════════════════════ */
 export const resourcesMenu: NavSection = {
     label: "Resources",
     columns: [
@@ -232,8 +272,8 @@ export const resourcesMenu: NavSection = {
 };
 
 /* ══════════════════════════════════════════════════════
-   4. Company
-   ══════════════════════════════════════════════════════ */
+ 4. Company
+ ══════════════════════════════════════════════════════ */
 export const companyMenu: NavSection = {
     label: "Company",
     columns: [
@@ -244,7 +284,7 @@ export const companyMenu: NavSection = {
                     label: "Company Overview",
                     href: "/about",
                     description:
-                        "Mind Your Business Media helps businesses grow with proven, solution-driven marketing — no retainers, no lock-ins.",
+                        "Mind Your Business Media helps businesses grow with proven, solution-driven marketing — results-driven strategies, no lock-ins.",
                 },
                 {
                     label: "Our Core Values",
@@ -275,8 +315,8 @@ export const companyMenu: NavSection = {
 };
 
 /* ══════════════════════════════════════════════════════
-   5. Client Support & Login (right-aligned)
-   ══════════════════════════════════════════════════════ */
+ 5. Client Support & Login (right-aligned)
+ ══════════════════════════════════════════════════════ */
 export const supportMenu: NavSection = {
     label: "Client Support & Login",
     columns: [

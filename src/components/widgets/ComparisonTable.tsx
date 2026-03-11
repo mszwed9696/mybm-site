@@ -10,31 +10,32 @@ export function ComparisonTable({ oldWay, mybWay }: Props) {
         <div className="grid md:grid-cols-2 gap-6">
             {/* Old Way */}
             <div
-                className="rounded-2xl p-7 relative overflow-hidden"
+                className="rounded-2xl p-7 relative overflow-hidden glass-panel inner-glow card-3d"
                 style={{
-                    background: "#fef2f2",
-                    border: "1px solid #fecaca",
+                    background: "linear-gradient(145deg, rgba(220, 38, 38, 0.05) 0%, rgba(20, 20, 25, 0.9) 100%)",
+                    border: "1px solid rgba(220, 38, 38, 0.15)",
                 }}
             >
+                <div className="gradient-border-top" />
                 <div className="flex items-center gap-2 mb-5">
                     <div
                         className="w-8 h-8 rounded-lg flex items-center justify-center"
-                        style={{ background: "#fee2e2" }}
+                        style={{ background: "rgba(220, 38, 38, 0.15)" }}
                     >
-                        <X size={16} style={{ color: "#dc2626" }} />
+                        <X size={16} style={{ color: "#ef4444" }} />
                     </div>
-                    <h4 className="font-bold text-sm uppercase tracking-wider" style={{ color: "#991b1b" }}>
+                    <h4 className="font-bold text-sm uppercase tracking-wider" style={{ color: "#fca5a5" }}>
                         The Old Way
                     </h4>
                 </div>
-                <p className="text-xs font-semibold mb-4" style={{ color: "#b91c1c" }}>
+                <p className="text-xs font-semibold mb-4" style={{ color: "#ef4444" }}>
                     Traditional Agency Retainer
                 </p>
                 <ul className="space-y-3">
                     {oldWay.map((item) => (
                         <li key={item} className="flex items-start gap-3">
                             <X size={14} className="shrink-0 mt-0.5" style={{ color: "#ef4444" }} />
-                            <span className="text-sm" style={{ color: "#7f1d1d" }}>
+                            <span className="text-sm" style={{ color: "rgba(244,244,245,0.7)" }}>
                                 {item}
                             </span>
                         </li>
@@ -42,32 +43,33 @@ export function ComparisonTable({ oldWay, mybWay }: Props) {
                 </ul>
             </div>
 
-            {/* MYB Way */}
+            {/* Mind Your Business Media Way */}
             <div
-                className="rounded-2xl p-7 relative overflow-hidden"
+                className="rounded-2xl p-7 relative overflow-hidden glass-panel inner-glow card-3d"
                 style={{
-                    background: "#f0fdf4",
-                    border: "1px solid #bbf7d0",
+                    background: "linear-gradient(145deg, rgba(34, 197, 94, 0.05) 0%, rgba(20, 20, 25, 0.9) 100%)",
+                    border: "1px solid rgba(34, 197, 94, 0.15)",
                 }}
             >
+                <div className="gradient-border-top" />
                 {/* Subtle glow */}
                 <div
-                    className="absolute -top-8 -right-8 w-32 h-32 rounded-full opacity-30 blur-[40px]"
+                    className="absolute -top-8 -right-8 w-32 h-32 rounded-full opacity-20 blur-[40px] pointer-events-none"
                     style={{ background: "#22c55e" }}
                 />
                 <div className="relative z-10">
                     <div className="flex items-center gap-2 mb-5">
                         <div
                             className="w-8 h-8 rounded-lg flex items-center justify-center"
-                            style={{ background: "#dcfce7" }}
+                            style={{ background: "rgba(34, 197, 94, 0.15)" }}
                         >
-                            <Check size={16} style={{ color: "#16a34a" }} />
+                            <Check size={16} style={{ color: "#4ade80" }} />
                         </div>
-                        <h4 className="font-bold text-sm uppercase tracking-wider" style={{ color: "#166534" }}>
-                            The MYB Way
+                        <h4 className="font-bold text-sm uppercase tracking-wider" style={{ color: "#86efac" }}>
+                            The Mind Your Business Media Way
                         </h4>
                     </div>
-                    <p className="text-xs font-semibold mb-4" style={{ color: "#15803d" }}>
+                    <p className="text-xs font-semibold mb-4" style={{ color: "#4ade80" }}>
                         Pay for Performance
                     </p>
                     <ul className="space-y-3">
@@ -76,9 +78,9 @@ export function ComparisonTable({ oldWay, mybWay }: Props) {
                                 <Check
                                     size={14}
                                     className="shrink-0 mt-0.5"
-                                    style={{ color: "#22c55e" }}
+                                    style={{ color: "#4ade80" }}
                                 />
-                                <span className="text-sm font-medium" style={{ color: "#14532d" }}>
+                                <span className="text-sm font-medium" style={{ color: "#fff" }}>
                                     {item}
                                 </span>
                             </li>

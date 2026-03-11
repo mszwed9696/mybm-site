@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout";
+import { PageHero } from "@/components/sections/PageHero";
 import { PageMeta } from "@/components/seo";
 import { useState } from "react";
 import { ArrowRight, ArrowLeft, BarChart3, Check, Target, Lightbulb, TrendingUp } from "lucide-react";
@@ -139,115 +140,133 @@ export default function MarketingQuizPage() {
 
     if (finished) {
         return (
-            <Layout>
+            <Layout noPaddingTop>
                 <PageMeta
                     title="Your Marketing Score | Mind Your Business Media"
                     description="See how your marketing stacks up."
                     canonicalPath="/resources/marketing-quiz"
                 />
-                <section className="pt-28 pb-16 min-h-screen" style={{ backgroundColor: "#edf2f4" }}>
-                    <div className="max-w-2xl mx-auto px-6">
-                        <div className="rounded-2xl border p-8 md:p-10 text-center" style={{ backgroundColor: "#fff", borderColor: "#e5e7eb" }}>
-                            <p className="text-sm font-bold uppercase tracking-wider mb-2" style={{ color: "#9ca3af" }}>
-                                Your Marketing Grade
-                            </p>
-                            <div
-                                className="w-28 h-28 mx-auto rounded-full flex items-center justify-center mb-4 text-5xl font-black text-white"
-                                style={{ backgroundColor: grade.color }}
-                            >
-                                {grade.letter}
-                            </div>
-                            <h2 className="text-2xl font-bold mb-1" style={{ color: "#0a0908" }}>
-                                {grade.label} — {totalScore} / 40
-                            </h2>
-                            <p className="text-sm mb-8 max-w-md mx-auto" style={{ color: "#546a7b" }}>
-                                {grade.text}
-                            </p>
+                <PageHero
+                    label="Score Analysis"
+                    title={<>Your Marketing Grade</>}
+                    description="We’ve analyzed your responses. Here is your personalized marketing score and recommended next steps."
+                />
 
-                            <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                                {[
-                                    { icon: Target, label: "Strategy", val: scores[0] },
-                                    { icon: BarChart3, label: "Website", val: scores[1] },
-                                    { icon: TrendingUp, label: "Paid Ads", val: scores[2] },
-                                    { icon: Lightbulb, label: "SEO", val: scores[3] },
-                                ].map((item) => (
-                                    <div key={item.label} className="flex items-center gap-3 p-3 rounded-lg" style={{ backgroundColor: "#f3f4f6" }}>
-                                        <item.icon size={18} style={{ color: "#af3e4d" }} />
-                                        <div className="flex-1 text-left">
-                                            <p className="text-xs font-semibold" style={{ color: "#374151" }}>{item.label}</p>
-                                            <div className="h-1.5 rounded-full mt-1" style={{ backgroundColor: "#d1d5db" }}>
-                                                <div className="h-1.5 rounded-full" style={{ width: `${(item.val / 4) * 100}%`, backgroundColor: "#af3e4d" }} />
+                <div className="relative z-10 mt-0 md:-mt-[100vh] bg-[#141419]">
+                    <section className="py-20 md:py-28 min-h-screen" style={{ backgroundColor: "#141419" }}>
+                        <div className="max-w-2xl mx-auto px-6">
+                            <div className="rounded-2xl p-8 md:p-10 text-center glass-panel inner-glow card-3d relative overflow-hidden bg-[#1A1A22]/50" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
+                                <div className="gradient-border-top" />
+                                <p className="text-sm font-bold uppercase tracking-wider mb-2" style={{ color: "rgba(244,244,245,0.5)" }}>
+                                    Your Final Grade
+                                </p>
+                                <div
+                                    className="w-28 h-28 mx-auto rounded-full flex items-center justify-center mb-4 text-5xl font-black text-white"
+                                    style={{ backgroundColor: grade.color }}
+                                >
+                                    {grade.letter}
+                                </div>
+                                <h2 className="text-2xl font-bold mb-1" style={{ color: "white" }}>
+                                    {grade.label} — {totalScore} / 40
+                                </h2>
+                                <p className="text-sm mb-8 max-w-md mx-auto" style={{ color: "rgba(244,244,245,0.7)" }}>
+                                    {grade.text}
+                                </p>
+
+                                <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                                    {[
+                                        { icon: Target, label: "Strategy", val: scores[0] },
+                                        { icon: BarChart3, label: "Website", val: scores[1] },
+                                        { icon: TrendingUp, label: "Paid Ads", val: scores[2] },
+                                        { icon: Lightbulb, label: "SEO", val: scores[3] },
+                                    ].map((item) => (
+                                        <div key={item.label} className="flex items-center gap-3 p-3 rounded-lg border" style={{ backgroundColor: "#141419", borderColor: "rgba(255,255,255,0.05)" }}>
+                                            <item.icon size={18} style={{ color: "hsl(352 48% 46%)" }} />
+                                            <div className="flex-1 text-left">
+                                                <p className="text-xs font-semibold" style={{ color: "white" }}>{item.label}</p>
+                                                <div className="h-1.5 rounded-full mt-1" style={{ backgroundColor: "rgba(255,255,255,0.1)" }}>
+                                                    <div className="h-1.5 rounded-full" style={{ width: `${(item.val / 4) * 100}%`, backgroundColor: "hsl(352 48% 46%)" }} />
+                                                </div>
                                             </div>
+                                            <span className="text-xs font-bold" style={{ color: "white" }}>{item.val}/4</span>
                                         </div>
-                                        <span className="text-xs font-bold" style={{ color: "#374151" }}>{item.val}/4</span>
-                                    </div>
-                                ))}
-                            </div>
+                                    ))}
+                                </div>
 
-                            <Link
-                                to="/free-audit"
-                                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-bold text-white hover:scale-105 transition-all"
-                                style={{ backgroundColor: "#af3e4d" }}
-                            >
-                                Get Your Free Personalized Audit
-                                <ArrowRight size={14} />
-                            </Link>
+                                <Link
+                                    to="/free-audit"
+                                    className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-bold text-white hover:scale-105 transition-all"
+                                    style={{ backgroundColor: "hsl(352 48% 46%)" }}
+                                >
+                                    Get Your Free Personalized Audit
+                                    <ArrowRight size={14} />
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
             </Layout>
         );
     }
 
     return (
-        <Layout>
+        <Layout noPaddingTop>
             <PageMeta
                 title="Free Marketing Quiz — Rate Your Marketing | Mind Your Business Media"
                 description="Take our free 10-question marketing quiz to discover where your marketing stands and how to improve."
                 canonicalPath="/resources/marketing-quiz"
             />
-            <section className="pt-28 pb-16 min-h-screen" style={{ backgroundColor: "#edf2f4" }}>
-                <div className="max-w-2xl mx-auto px-6">
-                    {/* Progress */}
-                    <div className="mb-8">
-                        <div className="flex items-center justify-between text-xs mb-2">
-                            <span style={{ color: "#546a7b" }}>Question {current + 1} of {quizQuestions.length}</span>
-                            <span className="font-bold" style={{ color: "#af3e4d" }}>{Math.round(progress)}%</span>
-                        </div>
-                        <div className="h-1.5 rounded-full" style={{ backgroundColor: "#d1d5db" }}>
-                            <div className="h-1.5 rounded-full transition-all duration-500" style={{ width: `${progress}%`, backgroundColor: "#af3e4d" }} />
-                        </div>
-                    </div>
+            <PageHero
+                label="Self Assessment"
+                title={<>Rate Your Marketing</>}
+                description="Take our free 10-question marketing quiz to discover where your marketing stands and how to improve."
+            />
 
-                    <div className="rounded-2xl border p-8 md:p-10" style={{ backgroundColor: "#fff", borderColor: "#e5e7eb" }}>
-                        <h2 className="text-xl md:text-2xl font-bold mb-6" style={{ color: "#0a0908" }}>
-                            {quizQuestions[current].question}
-                        </h2>
-                        <div className="space-y-2.5">
-                            {quizQuestions[current].options.map((opt) => (
-                                <button
-                                    type="button"
-                                    key={opt.label}
-                                    onClick={() => selectAnswer(opt.score)}
-                                    className="w-full text-left px-5 py-3.5 rounded-xl border-2 text-sm font-medium transition-all duration-200 border-gray-200 hover:border-[#af3e4d] hover:bg-[#af3e4d]/5 text-gray-700"
-                                >
-                                    {opt.label}
-                                </button>
-                            ))}
+            <div className="relative z-10 mt-0 md:-mt-[100vh] bg-[#141419]">
+                <section className="py-20 md:py-28 min-h-screen" style={{ backgroundColor: "#141419" }}>
+                    <div className="max-w-2xl mx-auto px-6">
+                        {/* Progress */}
+                        <div className="mb-8">
+                            <div className="flex items-center justify-between text-xs mb-2">
+                                <span style={{ color: "rgba(244,244,245,0.7)" }}>Question {current + 1} of {quizQuestions.length}</span>
+                                <span className="font-bold" style={{ color: "hsl(352 48% 46%)" }}>{Math.round(progress)}%</span>
+                            </div>
+                            <div className="h-1.5 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.1)" }}>
+                                <div className="h-1.5 rounded-full transition-all duration-500" style={{ width: `${progress}%`, backgroundColor: "hsl(352 48% 46%)" }} />
+                            </div>
                         </div>
-                    </div>
 
-                    {current > 0 && (
-                        <button
-                            onClick={() => { setCurrent((c) => c - 1); setScores((s) => s.slice(0, -1)); }}
-                            className="mt-4 inline-flex items-center gap-2 text-sm font-medium hover:text-[#af3e4d]"
-                            style={{ color: "#546a7b" }}
-                        >
-                            <ArrowLeft size={14} /> Back
-                        </button>
-                    )}
-                </div>
-            </section>
+                        <div className="rounded-2xl p-8 md:p-10 glass-panel inner-glow card-3d relative overflow-hidden bg-[#1A1A22]/50" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
+                            <div className="gradient-border-top" />
+                            <h2 className="text-xl md:text-2xl font-bold mb-6" style={{ color: "white" }}>
+                                {quizQuestions[current].question}
+                            </h2>
+                            <div className="space-y-2.5">
+                                {quizQuestions[current].options.map((opt) => (
+                                    <button
+                                        type="button"
+                                        key={opt.label}
+                                        onClick={() => selectAnswer(opt.score)}
+                                        className="w-full text-left px-5 py-3.5 rounded-xl border border-[rgba(255,255,255,0.1)] text-sm font-medium transition-all duration-200 hover:border-[hsl(352_48%_46%)] hover:bg-[hsl(352_48%_46%)/0.05] text-gray-300"
+                                    >
+                                        {opt.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        {current > 0 && (
+                            <button
+                                onClick={() => { setCurrent((c) => c - 1); setScores((s) => s.slice(0, -1)); }}
+                                className="mt-4 inline-flex items-center gap-2 text-sm font-medium hover:text-[hsl(352_48%_46%)]"
+                                style={{ color: "rgba(244,244,245,0.7)" }}
+                            >
+                                <ArrowLeft size={14} /> Back
+                            </button>
+                        )}
+                    </div>
+                </section>
+            </div>
         </Layout>
     );
 }

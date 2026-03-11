@@ -7,6 +7,7 @@ import type { ContentPageData } from "@/lib/api/contentItems";
 import { injectLLMMetaTags, generateLLMMetaTags, buildEntitySummary } from "@/lib/seo/llmOptimization";
 import { Loader2, ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/sections/PageHero";
 
 export default function GlossaryTermPage() {
     const { slug } = useParams<{ slug: string }>();
@@ -72,7 +73,7 @@ export default function GlossaryTermPage() {
     const faqItems = entry.faqs as Array<{ question: string; answer: string }>;
 
     return (
-        <Layout>
+        <Layout noPaddingTop>
             <PageMeta
                 title={`${entry.meta.title} | Supplement Marketing Glossary`}
                 description={entry.meta.description}
@@ -88,131 +89,126 @@ export default function GlossaryTermPage() {
                     }))}
                 />
             )}
+            <PageHero
+                label={heroData?.eyebrow}
+                title={<>{heroData?.headline || entry.meta.title}</>}
+                description={heroData?.subtitle}
+            />
 
-            <main className="container-wide py-16 md:py-24">
-                {/* Breadcrumb */}
-                <nav className="mb-8">
-                    <Link
-                        to="/glossary"
-                        className="text-sm text-muted-foreground hover:text-accent transition-colors inline-flex items-center gap-1"
-                    >
-                        <ArrowLeft className="w-3 h-3" />
-                        Back to Glossary
-                    </Link>
-                </nav>
+            {/* Main Content Wrapper for Sweep-Over Effect */}
+            <div className="relative z-10 mt-0 md:-mt-[100vh] bg-[#141419] min-h-screen">
+                <main className="container-wide py-16 md:py-24">
+                    {/* Breadcrumb */}
+                    <nav className="mb-8 pl-4">
+                        <Link
+                            to="/glossary"
+                            className="text-sm text-[rgba(244,244,245,0.7)] hover:text-[#af3e4d] transition-colors inline-flex items-center gap-1"
+                        >
+                            <ArrowLeft className="w-3 h-3" />
+                            Back to Glossary
+                        </Link>
+                    </nav>
 
-                {/* Hero */}
-                <div className="max-w-3xl mb-12">
-                    {heroData?.eyebrow && (
-                        <span className="text-sm font-semibold text-accent uppercase tracking-wider">
-                            {heroData.eyebrow}
-                        </span>
-                    )}
-                    <h1 className="text-4xl md:text-5xl font-bold text-foreground mt-3 mb-4">
-                        {heroData?.headline || entry.meta.title}
-                    </h1>
-                    {heroData?.subtitle && (
-                        <p className="text-xl text-muted-foreground">
-                            {heroData.subtitle}
-                        </p>
-                    )}
-                </div>
-
-                {/* Intro */}
-                {introData?.text && (
-                    <div className="max-w-3xl mb-12">
-                        <p className="text-lg text-foreground/80 leading-relaxed">
-                            {introData.text}
-                        </p>
-                    </div>
-                )}
-
-                {/* Sections */}
-                {(entry.sections as Array<{ title?: string; content?: string }>)?.map(
-                    (section, i) => (
-                        <div key={i} className="max-w-3xl mb-10">
-                            {section.title && (
-                                <h2 className="text-2xl font-bold text-foreground mb-4">
-                                    {section.title}
-                                </h2>
-                            )}
-                            {section.content && (
-                                <div className="text-foreground/80 leading-relaxed">
-                                    {section.content}
-                                </div>
-                            )}
+                    {/* Intro */}
+                    {introData?.text && (
+                        <div className="max-w-3xl mb-12 pl-4">
+                            <p className="text-lg text-[rgba(244,244,245,0.8)] leading-relaxed">
+                                {introData.text}
+                            </p>
                         </div>
-                    )
-                )}
+                    )}
 
-                {/* FAQs */}
-                {faqItems.length > 0 && (
-                    <div className="max-w-3xl mb-12">
-                        <h2 className="text-2xl font-bold text-foreground mb-6">
-                            Frequently Asked Questions
-                        </h2>
-                        <div className="space-y-6">
-                            {faqItems.map((faq, i) => (
-                                <div key={i} className="card-elevated p-6">
-                                    <h3 className="font-semibold text-foreground mb-2">
-                                        {faq.question}
-                                    </h3>
-                                    <p className="text-foreground/80">{faq.answer}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
-
-                {/* Related Terms */}
-                {(entry.relatedPages as Array<{ slug?: string; title?: string }>)
-                    .length > 0 && (
-                        <div className="max-w-3xl">
-                            <h2 className="text-2xl font-bold text-foreground mb-6">
-                                Related Terms
-                            </h2>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                {(
-                                    entry.relatedPages as Array<{ slug?: string; title?: string }>
-                                ).map(
-                                    (rel, i) =>
-                                        rel.slug &&
-                                        rel.title && (
-                                            <Link
-                                                key={i}
-                                                to={`/glossary/${rel.slug}`}
-                                                className="card-elevated p-4 hover:border-accent/50 transition-colors inline-flex items-center justify-between group"
-                                            >
-                                                <span className="font-medium group-hover:text-accent transition-colors">
-                                                    {rel.title}
-                                                </span>
-                                                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent transition-colors" />
-                                            </Link>
-                                        )
+                    {/* Sections */}
+                    {(entry.sections as Array<{ title?: string; content?: string }>)?.map(
+                        (section, i) => (
+                            <div key={i} className="max-w-3xl mb-10 pl-4">
+                                {section.title && (
+                                    <h2 className="text-2xl font-bold text-white mb-4">
+                                        {section.title}
+                                    </h2>
                                 )}
+                                {section.content && (
+                                    <div className="text-[rgba(244,244,245,0.8)] leading-relaxed">
+                                        {section.content}
+                                    </div>
+                                )}
+                            </div>
+                        )
+                    )}
+
+                    {/* FAQs */}
+                    {faqItems.length > 0 && (
+                        <div className="max-w-3xl mb-12 pl-4">
+                            <h2 className="text-2xl font-bold text-white mb-6">
+                                Frequently Asked Questions
+                            </h2>
+                            <div className="space-y-6">
+                                {faqItems.map((faq, i) => (
+                                    <div key={i} className="p-6 rounded-2xl glass-panel inner-glow card-3d relative overflow-hidden bg-[#1A1A22]/50" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
+                                        <div className="gradient-border-top" />
+                                        <h3 className="font-semibold text-white mb-2">
+                                            {faq.question}
+                                        </h3>
+                                        <p className="text-[rgba(244,244,245,0.8)]">{faq.answer}</p>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     )}
 
-                {/* CTA */}
-                {entry.ctaTitle && (
-                    <div className="max-w-3xl mt-16 text-center">
-                        <div className="card-elevated p-10 bg-accent/5 border-accent/20">
-                            <h2 className="text-2xl font-bold mb-3">{entry.ctaTitle}</h2>
-                            {entry.ctaSubtitle && (
-                                <p className="text-muted-foreground mb-6">
-                                    {entry.ctaSubtitle}
-                                </p>
-                            )}
-                            <Link to="/quiz">
-                                <Button variant="glow" size="lg">
-                                    Get Your Growth Plan
-                                </Button>
-                            </Link>
+                    {/* Related Terms */}
+                    {(entry.relatedPages as Array<{ slug?: string; title?: string }>)
+                        .length > 0 && (
+                            <div className="max-w-3xl pl-4">
+                                <h2 className="text-2xl font-bold text-white mb-6">
+                                    Related Terms
+                                </h2>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    {(
+                                        entry.relatedPages as Array<{ slug?: string; title?: string }>
+                                    ).map(
+                                        (rel, i) =>
+                                            rel.slug &&
+                                            rel.title && (
+                                                <Link
+                                                    key={i}
+                                                    to={`/glossary/${rel.slug}`}
+                                                    className="p-4 rounded-2xl glass-panel inner-glow card-3d relative overflow-hidden bg-[#1A1A22]/50 hover:border-[#af3e4d]/50 transition-colors inline-flex items-center justify-between group"
+                                                    style={{ borderColor: "rgba(255,255,255,0.05)" }}
+                                                >
+                                                    <div className="gradient-border-top" />
+                                                    <span className="font-medium text-white group-hover:text-[#af3e4d] transition-colors">
+                                                        {rel.title}
+                                                    </span>
+                                                    <ArrowRight className="w-4 h-4 text-[rgba(244,244,245,0.5)] group-hover:text-[#af3e4d] transition-colors" />
+                                                </Link>
+                                            )
+                                    )}
+                                </div>
+                            </div>
+                        )}
+
+                    {/* CTA */}
+                    {entry.ctaTitle && (
+                        <div className="max-w-3xl mt-16 text-center pl-4">
+                            <div className="p-10 rounded-3xl glass-panel inner-glow card-3d relative overflow-hidden bg-[#af3e4d]/5" style={{ borderColor: "rgba(175, 62, 77, 0.2)" }}>
+                                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#af3e4d]/50 to-transparent" />
+                                <h2 className="text-2xl font-bold text-white mb-3">{entry.ctaTitle}</h2>
+                                {entry.ctaSubtitle && (
+                                    <p className="text-[rgba(244,244,245,0.7)] mb-6">
+                                        {entry.ctaSubtitle}
+                                    </p>
+                                )}
+                                <Link to="/quiz">
+                                    <Button variant="glow" size="lg">
+                                        Get Your Growth Plan
+                                    </Button>
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                )}
-            </main>
+                    )}
+                </main>
+            </div>
         </Layout>
     );
 }

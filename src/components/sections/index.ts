@@ -1,4 +1,5 @@
 export { HeroSection } from "./HeroSection";
+export { PageHero } from "./PageHero";
 export { ServicesCardsSection } from "./ServicesCardsSection";
 export { TiersSection } from "./TiersSection";
 export { SocialProofSection } from "./SocialProofSection";
